@@ -1,32 +1,40 @@
-name: Quarto Publish
-
 on:
   push:
     branches:
-      - master
+      - main
+  pull_request:  
+
+name: Render and Publish
+
+# you need these permissions to publish to GitHub pages
+permissions: 
+  contents: write
+  pages: write
 
 jobs:
-  publish:
+  build-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Quarto
+      - name: Check out repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Render Quarto site
-        run: quarto render
-
-      - name: Configure Git
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-      - name: Deploy to GitHub Pages
-        uses: ad-m/github-push-action@v0.6.0
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: gh-pages
-          directory: _book
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # To install LaTeX to build PDF book 
+          tinytex: true 
+          # uncomment below and fill to pin a version
+          # version: SPECIFIC-QUARTO-VERSION-HERE
+
+  
+      # NOTE: If Publishing to GitHub Pages, 
+      #       set the permissions correctly (see top of this yaml)
+      - name: Publish to GitHub Pages (and render) 
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
