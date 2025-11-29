@@ -1,0 +1,202 @@
+---
+title: "工作流之代码格式"
+format: html
+---
+
+代码的编写格式往往直接影响代码的可读性和维护性。对于编程新手，建议从一开始就养成规范的书写习惯，这不仅有利于团队协作，也能让自己在回顾旧代码时更加轻松。
+
+本章整理了 tidyverse 推荐的格式，并作为全书的统一准则。初期遵循规范可能略感繁琐，但通过持续练习，这些规范将逐步内化为自然习惯。
+
+可借助 `styler` 包自动格式化代码。
+
+``` r
+install.packages("styler")
+```
+
+装载后，在 RStudio 中使用快捷键 Ctrl + Shift + P 打开命令面板，输入 “styler” 即可快速查看 styler 提供的所有快捷方式。
+
+## 命名规范
+
+命名变量建议使用小写字母、数字与下划线 `_`，下划线用于分隔单词：
+
+``` r
+# 推荐
+short_flights <- flights |> filter(air_time < 60)
+
+# 不推荐
+SHORTFLIGHTS <- flights |> filter(air_time < 60)
+```
+
+变量名应具备**描述性**，长不是问题，总比晦涩的缩写更易理解。在命名一组相关变量时，推荐使用**统一前缀**而非后缀，以提升自动补全功能的效率：
+
+``` r
+dep_time, dep_delay, dep_gate  # 推荐
+time_dep, delay_dep, gate_dep  # 不推荐
+```
+
+## 空格
+
+运算符（如 `+`, `-`, `==` 等）两侧需保留空格，唯独幂运算符 `^` 可不加。赋值符号 `<-` 左右也应空格分隔：
+
+``` r
+z <- (a + b)^2 / d
+```
+
+函数调用中，括号内不加空格，逗号后需空格：
+
+``` r
+mean(x, na.rm = TRUE)
+```
+
+`mutate()` 等参数较多的函数，可通过空格对齐等号以提升可读性：
+
+``` r
+flights |> 
+  mutate(
+    speed      = distance / air_time,
+    dep_hour   = dep_time %/% 100,
+    dep_minute = dep_time %%  100
+  )
+```
+
+## 管道符
+
+RStuido中管道符快捷键为 Ctrl + Shift + M。
+
+tidyverse 推荐使用原生管道 `|>`，符号前后各留一个空格。管道符通常置于**行尾**，方便续写。例如：
+
+``` r
+flights |>  
+  filter(!is.na(arr_delay), !is.na(tailnum)) |> 
+  count(dest)
+```
+
+若函数（如 `summarize()`）包含命名参数，每个参数独立成行。而无命名参数（如 `filter()`）可根据行的长度决定是否换行。
+
+管道中各层**缩进两格**。若参数分行书写，则进一步缩进。闭括号 `)` 建议单独成行。下方代码格式为例：
+
+``` r
+flights |>  
+  group_by(tailnum) |> 
+  summarize(
+    delay = mean(arr_delay, na.rm = TRUE),
+    n = n()
+  )
+```
+
+尽管有些简单操作可一行完成，但建议从一开始就分层书写，为后续扩展留出余地：
+
+``` r
+# 简洁但维护性差
+df |> mutate(y = x + 1)
+
+# 更推荐写法
+df |> 
+  mutate(
+    y = x + 1
+  )
+```
+
+若管道超过 10–15 行，建议引入**中间变量**，分阶段处理，尤其是在数据结构发生重大变化时（如 `pivot`, `summarize`）。
+
+## ggplot2 格式规范
+
+ggplot2 中的图层添加使用 `+`，应置于行尾，格式上与管道 `|>` 保持一致：
+
+``` r
+flights |> 
+  group_by(month) |> 
+  summarize(delay = mean(arr_delay, na.rm = TRUE)) |> 
+  ggplot(aes(x = month, y = delay)) +
+  geom_point() +
+  geom_line()
+```
+
+参数较多时建议换行并对齐，提升可读性：
+
+``` r
+flights |> 
+  group_by(dest) |> 
+  summarize(
+    distance = mean(distance),
+    speed = mean(distance / air_time, na.rm = TRUE)
+  ) |> 
+  ggplot(aes(x = distance, y = speed)) +
+  geom_smooth(
+    method = "loess",
+    span = 0.5,
+    se = FALSE, 
+    color = "white", 
+    linewidth = 4
+  ) +
+  geom_point()
+```
+
+需注意，`+` 与 `|>` 的格式有时无法完全统一，因为 ggplot2 比管道符出现得更早，故尚难以在设计上兼容。
+
+## 分节注释
+
+在脚本较长时，可用注释划分逻辑区域，例如：
+
+``` r
+# Load data --------------------------------------
+
+# Plot data --------------------------------------
+```
+
+RStudio 支持导航栏跳转：使用 Ctrl + Shift + R 插入分节注释，并快速定位不同部分。
+
+------------------------------------------------------------------------
+
+## 练手
+
+**示例一：**
+
+原始代码：
+
+``` r
+flights|>filter(dest=="IAH")|>group_by(year,month,day)|>summarize(n=n(),
+delay=mean(arr_delay,na.rm=TRUE))|>filter(n>10)
+```
+
+规范格式：
+
+``` r
+flights |> 
+  filter(dest == "IAH") |> 
+  group_by(year, month, day) |> 
+  summarize(
+    n = n(),
+    delay = mean(arr_delay, na.rm = TRUE)
+  ) |> 
+  filter(n > 10)
+```
+
+**示例二：**
+
+原始代码：
+
+``` r
+flights|>filter(carrier=="UA",dest%in%c("IAH","HOU"),sched_dep_time>
+0900,sched_arr_time<2000)|>group_by(flight)|>summarize(delay=mean(
+arr_delay,na.rm=TRUE),cancelled=sum(is.na(arr_delay)),n=n())|>filter(n>10)
+```
+
+规范格式：
+
+``` r
+flights |> 
+  filter(
+    carrier == "UA",
+    dest %in% c("IAH", "HOU"),
+    sched_dep_time >  0900,
+    sched_arr_time < 2000
+  ) |> 
+  group_by(flight) |> 
+  summarize(
+    delay = mean(arr_delay, na.rm = TRUE),
+    cancelled = sum(is.na(arr_delay)),
+    n = n()
+  ) |> 
+  filter(n > 10)
+```

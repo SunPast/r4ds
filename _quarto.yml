@@ -1,0 +1,34 @@
+project:
+  type: book
+
+book:
+  title: "R4DS Notes from DJ"
+  author: "Jia Ding"
+  date: "2025/11/22"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - chapters/ch1_data_visualization.qmd
+    - chapters/ch2_workflow_basics.qmd
+    - chapters/ch3_data_transformation.qmd
+    - chapters/ch4_workflow_code_style.qmd
+    - chapters/ch5_data_tidying.qmd
+    - chapters/ch6_workflow_scripts_projects.qmd
+    - chapters/ch7_data_import.qmd
+    - chapters/ch8_workflow_getting_help.qmd
+    - chapters/ch9_layers.qmd
+    - chapters/ch10_exploratory_data_analysis.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
