@@ -2,14 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jia Ding">
-<meta name="dcterms.date" content="2025-11-22">
 
-<title>R4DS Notes from DJ</title>
+<title>导入 – R4DS Notes from DJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,6 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -31,18 +30,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./chapters/ch1_data_visualization.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">序</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">导入</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -110,13 +109,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">序</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">导入</span></a>
   </div>
 </li>
@@ -191,40 +190,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#序" id="toc-序" class="nav-link active" data-scroll-target="#序">序</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R4DS Notes from DJ</h1>
+<h1 class="title">导入</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jia Ding </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 22, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -234,19 +215,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="序" class="level1 unnumbered">
-<h1 class="unnumbered">序</h1>
-<p>恭喜您发现这片蓝海！此站点用于呈现本人研读《R for Data Science》期间所整理的系统化笔记。</p>
-<p>《R for Data Science》由 Hadley Wickham 主编，被视为当代 R 语言生态的关键基石。全书以 tidyverse 为方法论核心，将数据导入、整理、转换、可视化、建模与再现性文档组织为一个一致而清晰的分析工作流，使读者能够在统一的语义框架下理解“以数据为中心”的思维方式。其价值不仅在于介绍函数与语法，更在于重塑 R 社区对数据科学流程的整体认识，是近年来影响力最为深远的 R 语言教材之一。</p>
-<p>自 2025 年 3 月起，本人围绕全书内容持续整理读书笔记。除基础操作外，还重点聚焦 tidy 数据结构、管道化表达、图形语法及工作流设计原则等核心机制，并结合个人实践对部分概念进行再组织与适度延展。近半年的积累逐渐构成一个较为完整的知识框架，故将其汇整于此，与诸君共享。</p>
-<p>若文中有理解偏差或论述不尽之处，诚挚期待指正。若这些笔记能为正在学习 tidyverse 或构建 R 数据分析流程的读者带来参考价值，则深感荣幸！</p>
-<p>本书在线阅读网址：https://r4ds.hadley.nz/</p>
-<p>开场白结束，祝各位阅读愉快。</p>
-<p>丁加</p>
-<p>2025年11月22日于湘雅</p>
+<p><img src="https://r4ds.hadley.nz/diagrams/data-science/base.png" class="img-fluid"></p>
+<p>上图展示了完成一个数据科学项目的基本模型，也是全书的核心思想。</p>
+<ol type="1">
+<li><p>导入。读取文本文件、数据库或 API 数据，是整个流程的起点。</p></li>
+<li><p>规整。通过结构化与清洗，使数据具有一致的语义形式，便于后续分析。</p></li>
+<li><p>转换。包含筛选、创建变量、变换尺度、生成汇总统计等操作。</p></li>
+<li><p>可视化。以图形揭示模式、验证假设，使数据关系得以直观呈现。</p></li>
+<li><p>建模。在可视化基础上进行定量推断，是进一步精确回答问题的工具。</p></li>
+<li><p>交流。通过图表、模型与文档向他人清晰传递数据分析的过程与结论。</p></li>
+</ol>
+<p>上述六个步骤均依赖稳定的编程能力。数据科学并非要求精湛的程序设计，但掌握必要的编码技能可显著提升分析效率，使工作流更具连贯性与可复用性。</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -300,14 +281,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -651,10 +631,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="序">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">序</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="导入">
-        <span class="nav-page-text">导入</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapters/ch1_data_visualization.html" class="pagination-link" aria-label="数据可视化">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据可视化</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
