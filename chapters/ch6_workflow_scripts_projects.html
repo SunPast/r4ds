@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../chapters/ch5_data_tidying.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -216,8 +217,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="../chapters/ch11_communication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">解释性图表</span></span></a>
   </div>
 </li>
     </ul>
@@ -229,15 +230,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
-  <li><a href="#rstudio-诊断" id="toc-rstudio-诊断" class="nav-link active" data-scroll-target="#rstudio-诊断"><span class="header-section-number">6.0.1</span> RStudio 诊断</a></li>
-  <li><a href="#保存与命名" id="toc-保存与命名" class="nav-link" data-scroll-target="#保存与命名"><span class="header-section-number">6.0.2</span> 保存与命名</a></li>
-  <li><a href="#项目" id="toc-项目" class="nav-link" data-scroll-target="#项目"><span class="header-section-number">6.1</span> 项目</a>
   <ul class="collapse">
-  <li><a href="#真理的源头" id="toc-真理的源头" class="nav-link" data-scroll-target="#真理的源头"><span class="header-section-number">6.1.1</span> 真理的源头</a></li>
-  <li><a href="#rstudio项目" id="toc-rstudio项目" class="nav-link" data-scroll-target="#rstudio项目"><span class="header-section-number">6.1.2</span> RStudio项目</a></li>
-  <li><a href="#相对和绝对路径" id="toc-相对和绝对路径" class="nav-link" data-scroll-target="#相对和绝对路径"><span class="header-section-number">6.1.3</span> 相对和绝对路径</a></li>
-  </ul></li>
+  <li><a href="#项目" id="toc-项目" class="nav-link active" data-scroll-target="#项目"><span class="header-section-number">6.1</span> 项目</a></li>
   </ul>
 </nav>
     </div>
@@ -296,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>可让系列文件名以字母或数字顺序开头，以便按实际使用顺序排列它们。</li>
 </ol>
 <p>以下举例。请看一个奇葩文件夹中的各文件名：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>alternative model.R <span class="co">#有空格</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>alternative model.R <span class="co">#有空格</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>code <span class="cf">for</span> exploratory analysis.r <span class="co">#有空格且繁杂</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>finalreport.qmd</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>FinalReport.qmd <span class="co">#妄图通过大小写区分文件</span></span>
@@ -304,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Figure_02.png <span class="co">#与上面fig1格式不统一</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>model_first_try.R</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>run<span class="sc">-</span>first.r <span class="co">#没描述内容</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>temp.txt <span class="co">#没描述内容</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>temp.txt <span class="co">#没描述内容</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>修改名称后如下：</p>
 <pre><code>01-load-data.R
 02-exploratory-analysis.R
@@ -351,10 +345,10 @@ report-draft-notes.txt</code></pre>
 <p>R 的<strong>工作目录</strong>概念绝不可忽视。这是 R 查找要求它加载的文件的位置，以及它所放置的保存文件的位置。RStudio 在控制台顶部显示当前工作目录：</p>
 <p><img src="https://r4ds.hadley.nz/screenshots/rstudio-wd.png" class="img-fluid"></p>
 <p>可以通过运行<code>getwd()</code>命令打印工作目录：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"C:/Users/LENOVO/Desktop/r_packages/BLIT/blit/R"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"C:/Users/LENOVO/Desktop/r_packages/BLIT/blit/R"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>可以从 R 中设置工作目录，但书中<strong>不建议这样做</strong>：</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setwd</span>(<span class="st">"/path/to/my/CoolProject"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setwd</span>(<span class="st">"/path/to/my/CoolProject"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>因为有更好的方法管理工作——RStudio项目。</p>
 </section>
 </section>
@@ -364,13 +358,13 @@ report-draft-notes.txt</code></pre>
 <p>下面实操为例，创建一个阅读本书剩余部分时专用的项目：</p>
 <p><img src="https://r4ds.hadley.nz/diagrams/new-project.png" class="img-fluid"></p>
 <p>随后在脚本编辑器中输入以下命令并保存文件，将其命名为 “diamonds.R”。再创建一个名为 “data” 的新文件夹。最后，运行完整脚本，该脚本会将相关 PNG 和 CSV 文件保存到项目目录中。本书后续会对这些文件进行探索。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>()</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"diamonds.png"</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(diamonds, <span class="st">"data/diamonds.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(diamonds, <span class="st">"data/diamonds.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>退出 RStudio，在电脑上找到该项目文件夹，双击<code>.Rproj</code>文件即可重新打开项目。</p>
 </section>
 <section id="相对和绝对路径" class="level3" data-number="6.1.3">
@@ -436,13 +430,14 @@ report-draft-notes.txt</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

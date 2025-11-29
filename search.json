@@ -578,5 +578,75 @@
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>探索性数据分析</span>"
     ]
+  },
+  {
+    "objectID": "chapters/ch11_communication.html",
+    "href": "chapters/ch11_communication.html",
+    "title": "11  解释性图表",
+    "section": "",
+    "text": "11.1 引言\n通过前一章节我们知道如何分析数据，接下来就需要将自己的理解传达给他人。由于我们的受众可能不具备相关背景知识，所以要确保图表尽可能一目了然，从而帮助他们快速建立对数据的准确认知。\n简言之，目标是：将探索性图表转化为解释性图表。\n必要工具包：",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>解释性图表</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/ch11_communication.html#引言",
+    "href": "chapters/ch11_communication.html#引言",
+    "title": "11  解释性图表",
+    "section": "",
+    "text": "library(tidyverse)    # 含ggplot2\nlibrary(scales)       # 调整坐标轴刻度/标签\nlibrary(ggrepel)      # 智能标签防重叠\nlibrary(patchwork)    # 多图排版",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>解释性图表</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/ch11_communication.html#标签labels",
+    "href": "chapters/ch11_communication.html#标签labels",
+    "title": "11  解释性图表",
+    "section": "11.2 标签（Labels）",
+    "text": "11.2 标签（Labels）\n使用labs()为图表添加标签，增强图形可读性：\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point(aes(color = class)) +\n  geom_smooth(se = FALSE) +\n  labs(\n    x = \"Engine displacement (L)\",\n    y = \"Highway fuel economy (mpg)\",\n    color = \"Car type\",\n    title = \"Fuel efficiency generally decreases with engine size\",\n    subtitle = \"Two seaters (sports cars) are an exception because of their light weight\",\n    caption = \"Data from fueleconomy.gov\"\n  )\n\n图表标题的作用是概括核心内容。注意标题不能仅描述图表类型（如“发动机排量与燃油经济性的散点图”）。\n除了主标题，还有两种标签：\n\nsubtitle：在主标题下方以较小字体添加补充说明\ncaption：在图表右下角添加文字（通常用于注明数据来源）\n\n通过labs()函数也可以修改坐标轴和图例标题。建议将简短的变量名替换为更详细的描述，并包含单位信息。\n此外，还可以使用数学公式代替普通文本标签。只需将引号替换为quote()，具体语法可参考?plotmath。\ndf &lt;- tibble(\n  x = 1:10,\n  y = cumsum(x^2)\n)\n\nggplot(df, aes(x, y)) +\n  geom_point() +\n  labs(\n    x = quote(x[i]),\n    y = quote(sum(x[i]^2, i==1, n))\n  )",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>解释性图表</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/ch11_communication.html#注释annotations",
+    "href": "chapters/ch11_communication.html#注释annotations",
+    "title": "11  解释性图表",
+    "section": "11.3 注释（Annotations）",
+    "text": "11.3 注释（Annotations）\n除了标签外，对个别观测值或观测值组进行注释也很有用。基础函数是geom_text()，它与geom_point()类似，但多了一个label美学属性，可以在图表中添加文字注释。\n注释有两种方法。\n第一种是使用专门准备的标注数据框。例如，我们提取每种驱动类型中发动机排量最大的车型信息：\nlabel_info &lt;- mpg |&gt;\n  group_by(drv) |&gt;\n  arrange(desc(displ)) |&gt;\n  slice_head(n = 1) |&gt;\n  mutate(\n    drive_type = case_when(\n      drv == \"f\" ~ \"front-wheel drive\",\n      drv == \"r\" ~ \"rear-wheel drive\",\n      drv == \"4\" ~ \"4-wheel drive\"\n    )\n  ) |&gt;\n  select(displ, hwy, drv, drive_type)\n\nlabel_info\n#&gt; # A tibble: 3 × 4\n#&gt; # Groups:   drv [3]\n#&gt;   displ   hwy drv   drive_type       \n#&gt;   &lt;dbl&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            \n#&gt; 1   6.5    17 4     4-wheel drive    \n#&gt; 2   5.3    25 f     front-wheel drive\n#&gt; 3   7      24 r     rear-wheel drive\n然后直接在图表上标注这三组数据，用注释代替图例。通过调整字体大小(size)和粗细(fontface)可以突出注释：\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.3) +\n  geom_smooth(se = FALSE) +\n  geom_text(\n    data = label_info,\n    aes(label = drive_type),\n    fontface = \"bold\", size = 5, hjust = \"right\", vjust = \"bottom\" # 控制标注对齐\n  ) +\n  theme(legend.position = \"none\")  # 隐藏图例\n\n注意到注释与散点重叠，此时可以使用ggrepel包的geom_label_repel()自动调整位置：\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.3) +\n  geom_smooth(se = FALSE) +\n  geom_label_repel(\n    data = label_info,\n    aes(label = drive_type),\n    fontface = \"bold\", size = 5,\n    nudge_y = 2  # 垂直偏移\n  ) +\n  theme(legend.position = \"none\")\n\n结合geom_text_repel()和特殊标记则可以突出异常点：\npotential_outliers &lt;- mpg |&gt; filter(hwy &gt; 40 | (hwy &gt; 20 & displ &gt; 5))\n\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  geom_text_repel(data = potential_outliers, aes(label = model)) +\n  geom_point(\n    data = potential_outliers, \n    color = \"red\", size = 3, shape = \"circle open\"  # 空心红圈标记\n  )\n\n其他标注特殊点的方法：\n\n参考线：使用geom_hline()/geom_vline()\n矩形标记：使用geom_rect()或ggforce::geom_mark_hull()\n箭头指示：使用geom_segment(arrow = arrow())\n\n注释的第二种方法是使用annotate函数。\nannotate()适合添加少量独立标注元素。例如添加趋势说明：\ntrend_text &lt;- \"Larger engine sizes tend to have lower fuel economy.\" |&gt;\n  str_wrap(width = 30)\ntrend_text\n#&gt; [1] \"Larger engine sizes tend to\\nhave lower fuel economy.\"\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  annotate(\n    geom = \"label\", x = 3.5, y = 38,\n    label = trend_text,\n    hjust = \"left\", color = \"red\"\n  ) +\n  annotate(\n    geom = \"segment\",\n    x = 3, y = 35, xend = 5, yend = 25, color = \"red\", # 给箭头定位\n    arrow = arrow(type = \"closed\")\n  )",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>解释性图表</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/ch11_communication.html#比例尺scales",
+    "href": "chapters/ch11_communication.html#比例尺scales",
+    "title": "11  解释性图表",
+    "section": "11.4 比例尺（Scales）",
+    "text": "11.4 比例尺（Scales）\n比例尺也可调整美学映射的视觉表现形式。\n\n11.4.1 默认比例\nggplot2 默认添加的比例尺如下：\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point(aes(color = class)) +\n  scale_x_continuous() +\n  scale_y_continuous() +\n  scale_color_discrete()\n命名规则：scale_ + 美学名称（如 x、color） + _ + 比例尺类型（如 continuous、discrete）。\n\ncontinuous 表示将数值以连续刻度形式映射。\ndiscrete 表示基于每个离散变量类别进行分配。\n\n默认比例尺适用于大多数情况。\n\n\n11.4.2 轴刻度和图例键\n坐标轴和图例统称为引导元素（guides）。其中坐标轴用于呈现x和y美学映射，而图例则负责展示其他所有美学映射。\n影响坐标轴刻度线和图例显示的两个主要参数是： breaks 和 labels。breaks参数用于控制刻度线的位置或与图例相关联的数值；labels参数则控制每个刻度线或图例对应的文本标签。\n以下分别为例：\n# break修改y轴刻度间隔\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  scale_y_continuous(breaks = seq(15, 40, by = 5))\n\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point() +\n  scale_x_continuous(labels = NULL) +\n  scale_y_continuous(labels = NULL) +\n  scale_color_discrete(labels = c(\"4\" = \"4-wheel\", \"f\" = \"front\", \"r\" = \"rear\"))\n\nlabels参数与scales包中的标签格式化函数结合使用时，能有效实现数值的货币化（如添加美元符号）、百分比化等格式转换。比如label_dollar()函数效果如下，通过将美元数值除以1000并添加”K”，同时自定义刻度间隔点（breaks参数仍基于原始标度设置）。\nlibrary(scales)\nggplot(diamonds, aes(x = price, y = cut)) +\n  geom_boxplot() +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000, suffix = \"K\"))\n\n另一个实用的函数是 label_percent()，将标签改为百分比形式。\nggplot(diamonds, aes(x = cut, fill = clarity)) +\n  geom_bar(position = \"fill\") +\n  scale_y_continuous(name = \"Percentage\", labels = label_percent())\n\n另外，breaks 参数还有另一个用途。当数据点较少时可精确标注观测值位置。以展示美国总统任期起止时间的图表为例：\npresidential |&gt;\n  mutate(id = 33 + row_number()) |&gt;\n  ggplot(aes(x = start, y = id)) +\n  geom_point() +\n  geom_segment(aes(xend = end, yend = id)) +\n  scale_x_date(name = NULL, breaks = presidential$start, date_labels = \"'%y\")\n\n\n\n11.4.3 图例布局\nbreaks和labels参数最常用于调整坐标轴，虽然它们也可用于图例，但图例调整通常需要其他方法。\n控制图例整体位置需使用theme()设置（在本章末尾详述，它主要用于控制图形的非数据元素）。通过theme()的legend.position参数可指定图例位置：\nbase &lt;- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point(aes(color = class))\n\n# 默认右侧显示\nbase + theme(legend.position = \"right\")  \n# 左侧显示\nbase + theme(legend.position = \"left\")\n# 顶部显示并控制图例分3行排列\nbase + theme(legend.position = \"top\") +\n  guides(color = guide_legend(nrow = 3))\n# 底部显示并控制图例分3行排列\nbase + theme(legend.position = \"bottom\") +\n  guides(color = guide_legend(nrow = 3))\n布局建议：\n\n宽幅图形建议图例置于顶部或底部\n窄幅图形建议图例置于左侧或右侧\n使用legend.position = \"none\"可完全隐藏图例\n\n通过guides()配合guide_legend()或guide_colorbar()可控制单个图例显示。以下示例展示两个关键设置：\n\n用nrow更改图例行数\n用override.aes更改美学设置（如增大图例点大小）\n\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point(aes(color = class), alpha = 0.5) +  # 半透明显示密集点\n  geom_smooth(se = FALSE) +\n  theme(legend.position = \"bottom\") +\n  guides(color = guide_legend(\n    nrow = 2, \n    override.aes = list(size = 4)  # 图例点尺寸设为4倍\n  ))\n\n\n特别注意：guides()中的参数名称必须与对应的美学映射名称完全匹配。\n\n\n\n11.4.4 替换比例尺\n除了微调参数外，还可以直接替换整个比例尺。最常需要替换的比例尺主要有两种：连续位置比例尺和颜色比例尺。\n1. 连续位置比例尺\n使用对数变换（保留原始刻度标签）：\nggplot(diamonds, aes(x = carat, y = price)) +\n  geom_point() +\n  scale_x_log10() + \n  scale_y_log10()\n\n\n\nPlot of price versus carat of diamonds. Data binned and the color of the rectangles representing each bin based on the number of points that fall into that bin. The axis labels are on the original data scale.\n\n\n2. 颜色比例尺\n\n离散型：使用 ColorBrewer 调色板（对色盲友好）：\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point(aes(color = drv)) +\n  scale_color_brewer(palette = \"Set1\") # 适配红绿色盲\n当需要自定义数值与颜色的映射关系时，应使用 scale_color_manual()。例如在总统政党数据可视化中，红色代表共和党，蓝色代表民主党，可以写成：\nscale_color_manual(values = c(Republican = \"#E81B23\", Democratic = \"#00AEF3\")\n连续型：使用内置的 scale_color_gradient() 或 scale_fill_gradient() 函数。如果需要发散的（diverging）颜色比例尺，则应当使用 scale_color_gradient2()，该函数允许为正负值分配不同颜色（例如区分高于或低于均值的数据点）。\n另一个推荐方案是采用 viridis 色标体系。设计者 Nathaniel Smith 和 Stéfan van der Walt 精心打造的这些连续色标具有以下特性：\n\n适配各类色盲患者的视觉需求\n在彩色和黑白模式下均保持感知均匀性\n在 ggplot2 中提供三种变体：\n\n连续型（后缀 _c）\n离散型（后缀 _d）\n分箱型（后缀 _b）\n\n\n应用示例如下：\ndf &lt;- tibble(\n  x = rnorm(10000),\n  y = rnorm(10000)\n)\n\nggplot(df, aes(x, y)) +\n  geom_hex() +\n  coord_fixed() +\n  labs(title = \"Default, continuous\", x = NULL, y = NULL)\n\nggplot(df, aes(x, y)) +\n  geom_hex() +\n  coord_fixed() +\n  scale_fill_viridis_b() +\n  labs(title = \"Viridis, binned\", x = NULL, y = NULL)\n\n\n\n\n\n11.4.5 缩放视图\n控制图形显示范围主要有两个方法：\n\n调整绘图数据范围\n设置比例尺限制\n\n比如当分别绘制SUV和小轿车的油耗数据时，两张图的坐标轴范围和图例显示不一致，SUV的x轴范围是4.0-6.5，轿车则是1.8-4.0；且图例也不同，SUV只有四驱和后驱，轿车只有前驱和四驱。两张图不能直接比较，需进行标度统一。\n# 创建共享比例尺\nx_scale &lt;- scale_x_continuous(limits = range(mpg$displ))\ny_scale &lt;- scale_y_continuous(limits = range(mpg$hwy))\ncol_scale &lt;- scale_color_discrete(limits = unique(mpg$drv))\n\n# 应用至分面图形\nggplot(suv, aes(displ, hwy, color = drv)) +\n  geom_point() +\n  x_scale + y_scale + col_scale\n\nggplot(compact, aes(displ, hwy, color = drv)) +\n  geom_point() +\n  x_scale + y_scale + col_scale",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>解释性图表</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/ch11_communication.html#主题themes",
+    "href": "chapters/ch11_communication.html#主题themes",
+    "title": "11  解释性图表",
+    "section": "11.5 主题（Themes）",
+    "text": "11.5 主题（Themes）\n主题（theme）用于自定义图表的非数据元素（如背景、网格线、字体等）。\nggplot2 提供8种内置主题，默认是 theme_gray()。常用主题包括：\n\n\n\n主题函数\n效果描述\n\n\n\n\ntheme_gray()\n灰色背景（默认）\n\n\ntheme_bw()\n白色背景 + 灰色网格线\n\n\ntheme_classic()\n经典风格（无网格线，仅坐标轴）\n\n\ntheme_minimal()\n极简风格（无背景和边框）\n\n\ntheme_void()\n完全空白（仅显示几何对象）\n\n\n\n通过 theme() 函数可以精细控制图表外观，例如：\n\n调整图例\n\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point() +\n  theme(\n    legend.position = c(0.6, 0.7),  # 图例位置（坐标范围0~1）\n    legend.direction = \"horizontal\", # 图例水平排列\n    legend.box.background = element_rect(color = \"black\")  # 图例边框\n  )\n\n坐标轴和网格线\n\ntheme(\n  axis.text.x = element_text(angle = 45, hjust = 1),  # X轴标签旋转45度\n  panel.grid.major = element_line(color = \"gray80\"),  # 主网格线颜色\n  panel.background = element_rect(fill = \"white\")     # 绘图区背景色\n要快速预览当前主题效果可用如下函数：\nggplot2::theme_get()",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>解释性图表</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/ch11_communication.html#多图布局layout",
+    "href": "chapters/ch11_communication.html#多图布局layout",
+    "title": "11  解释性图表",
+    "section": "11.6 多图布局（Layout）",
+    "text": "11.6 多图布局（Layout）\n当需要将多个图表组合成一个图形时，可以使用 patchwork 包。\n\n让两个子图合并，并排显示\n\nlibrary(patchwork)\nlibrary(ggplot2)\n\n# 创建两个图表对象\np1 &lt;- ggplot(mpg, aes(x = displ, y = hwy)) + \n  geom_point() + \n  labs(title = \"散点图：发动机排量 vs. 油耗\")\n\np2 &lt;- ggplot(mpg, aes(x = drv, y = hwy)) + \n  geom_boxplot() + \n  labs(title = \"箱线图：驱动类型 vs. 油耗\")\n\n# 并排显示\np1 + p2\n\n复杂布局（| 和 /)\n\np3 &lt;- ggplot(mpg, aes(x = cty, y = hwy)) + \n  geom_point() + \n  labs(title = \"散点图：城市油耗 vs. 高速油耗\")\n\n(p1 | p3) / p2\n# 第一行：p1 | p3，第二行：p2\n\n\n| 横向排列，/ 纵向排列\n用括号 () 明确分组优先级\n\n\n\n统一图例、定义尺寸\n\n通过 plot_layout(guides = \"collect\") 合并多个子图的图例，并用 & theme() 统一调整位置：\n(p1 + p2 + p3) + \n  plot_layout(guides = \"collect\") &  # 合并所有图例\n  theme(legend.position = \"top\")    # 图例置顶\n\n运算符区别：\n\n+添加图层或组合子图\n&批量修改主题（适用于 patchwork 全局）\n\n\n拼图的图例区域称为（guide_area），是专门为图例预留的区域，通常与顶部布局结合：\n(guide_area() / (p1 + p2)) +  # 图例在上，p1和p2在下\n  plot_layout(guides = \"collect\", heights = c(1, 4))  # 图例区高度1，主图区高度4\n另外还可自定义子图尺寸，通过 heights 和 widths 按比例分配空间：\n(p1 | p2 | p3) + \n  plot_layout(\n    widths = c(2, 1, 1),  # 第一个图宽度占2份\n    heights = c(3, 2)      # 适用于纵向布局\n  )",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>解释性图表</span>"
+    ]
   }
 ]
