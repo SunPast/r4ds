@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; 工作流之代码格式 – R4DS Notes from DJ</title>
+<title>12&nbsp; 逻辑向量 – R4DS Notes from DJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/ch5_data_tidying.html" rel="next">
-<link href="../chapters/ch3_data_transformation.html" rel="prev">
+<link href="../chapters/ch13_numbers.html" rel="next">
+<link href="../chapters/ch11_communication.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch4_workflow_code_style.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">工作流之代码格式</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch12_logical_vectors.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">逻辑向量</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/ch4_workflow_code_style.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/ch4_workflow_code_style.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">工作流之代码格式</span></span></a>
   </div>
 </li>
@@ -249,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/ch12_logical_vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch12_logical_vectors.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
   </div>
 </li>
@@ -281,21 +281,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#命名规范" id="toc-命名规范" class="nav-link active" data-scroll-target="#命名规范"><span class="header-section-number">4.1</span> 命名规范</a></li>
-  <li><a href="#空格" id="toc-空格" class="nav-link" data-scroll-target="#空格"><span class="header-section-number">4.2</span> 空格</a></li>
-  <li><a href="#管道符" id="toc-管道符" class="nav-link" data-scroll-target="#管道符"><span class="header-section-number">4.3</span> 管道符</a></li>
-  <li><a href="#ggplot2-格式规范" id="toc-ggplot2-格式规范" class="nav-link" data-scroll-target="#ggplot2-格式规范"><span class="header-section-number">4.4</span> ggplot2 格式规范</a></li>
-  <li><a href="#分节注释" id="toc-分节注释" class="nav-link" data-scroll-target="#分节注释"><span class="header-section-number">4.5</span> 分节注释</a></li>
-  <li><a href="#练手" id="toc-练手" class="nav-link" data-scroll-target="#练手"><span class="header-section-number">4.6</span> 练手</a></li>
+  <li><a href="#引言" id="toc-引言" class="nav-link active" data-scroll-target="#引言"><span class="header-section-number">12.1</span> 引言</a></li>
+  <li><a href="#比较运算" id="toc-比较运算" class="nav-link" data-scroll-target="#比较运算"><span class="header-section-number">12.2</span> 比较运算</a></li>
+  <li><a href="#布尔代数" id="toc-布尔代数" class="nav-link" data-scroll-target="#布尔代数"><span class="header-section-number">12.3</span> 布尔代数</a></li>
+  <li><a href="#逻辑汇总" id="toc-逻辑汇总" class="nav-link" data-scroll-target="#逻辑汇总"><span class="header-section-number">12.4</span> 逻辑汇总</a></li>
+  <li><a href="#条件转换" id="toc-条件转换" class="nav-link" data-scroll-target="#条件转换"><span class="header-section-number">12.5</span> 条件转换</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch4_workflow_code_style.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch4_workflow_code_style.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch12_logical_vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch12_logical_vectors.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">工作流之代码格式</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">逻辑向量</span></h1>
 </div>
 
 
@@ -312,134 +311,124 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>代码的编写格式往往直接影响代码的可读性和维护性。对于编程新手，建议从一开始就养成规范的书写习惯，这不仅有利于团队协作，也能让自己在回顾旧代码时更加轻松。</p>
-<p>本章整理了 tidyverse 推荐的格式，并作为全书的统一准则。初期遵循规范可能略感繁琐，但通过持续练习，这些规范将逐步内化为自然习惯。</p>
-<p>可借助 <code>styler</code> 包自动格式化代码。</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"styler"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>装载后，在 RStudio 中使用快捷键 Ctrl + Shift + P 打开命令面板，输入 “styler” 即可快速查看 styler 提供的所有快捷方式。</p>
-<section id="命名规范" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="命名规范"><span class="header-section-number">4.1</span> 命名规范</h2>
-<p>命名变量建议使用小写字母、数字与下划线 <code>_</code>，下划线用于分隔单词：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 推荐</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>short_flights <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(air_time <span class="sc">&lt;</span> <span class="dv">60</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 不推荐</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>SHORTFLIGHTS <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(air_time <span class="sc">&lt;</span> <span class="dv">60</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>变量名应具备<strong>描述性</strong>，长不是问题，总比晦涩的缩写更易理解。在命名一组相关变量时，推荐使用<strong>统一前缀</strong>而非后缀，以提升自动补全功能的效率：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dep_time, dep_delay, dep_gate  <span class="co"># 推荐</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>time_dep, delay_dep, gate_dep  <span class="co"># 不推荐</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="引言" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="引言"><span class="header-section-number">12.1</span> 引言</h2>
+<p>逻辑向量中的元素只有三种值：<code>TRUE</code>、<code>FALSE</code>、<code>NA</code>。</p>
+<p>本章用到下列R包：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13) <span class="co">#航班数据</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="空格" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="空格"><span class="header-section-number">4.2</span> 空格</h2>
-<p>运算符（如 <code>+</code>, <code>-</code>, <code>==</code> 等）两侧需保留空格，唯独幂运算符 <code>^</code> 可不加。赋值符号 <code>&lt;-</code> 左右也应空格分隔：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (a <span class="sc">+</span> b)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>函数调用中，括号内不加空格，逗号后需空格：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>mutate()</code> 等参数较多的函数，可通过空格对齐等号以提升可读性：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">speed      =</span> distance <span class="sc">/</span> air_time,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_hour   =</span> dep_time <span class="sc">%/%</span> <span class="dv">100</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_minute =</span> dep_time <span class="sc">%%</span>  <span class="dv">100</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="比较运算" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="比较运算"><span class="header-section-number">12.2</span> 比较运算</h2>
+<p>创建逻辑向量的最常用方法是使用比较运算符：<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&gt;=</code>、<code>!=</code> 和 <code>==</code>。</p>
+<p>比如在<code>filter()</code>函数中的比较运算符用于筛选数据：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dep_time <span class="sc">&gt;</span> <span class="dv">600</span> <span class="sc">&amp;</span> dep_time <span class="sc">&lt;</span> <span class="dv">2000</span> <span class="sc">&amp;</span> <span class="fu">abs</span>(arr_delay) <span class="sc">&lt;</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>或者在<code>mutate()</code>函数中用于限定：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">daytime =</span> dep_time <span class="sc">&gt;</span> <span class="dv">600</span> <span class="sc">&amp;</span> dep_time <span class="sc">&lt;</span> <span class="dv">2000</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">approx_ontime =</span> <span class="fu">abs</span>(arr_delay) <span class="sc">&lt;</span> <span class="dv">20</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.keep =</span> <span class="st">"used"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>在进行比较运算时，注意与浮点数相关的运算不能用<code>==</code>，因为计算机表示小数时存在精度误差。错误示范：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">49</span> <span class="sc">*</span> <span class="dv">49</span>, <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">==</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE FALSE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>解决方法是使用 <code>dplyr::near()</code> 函数，可忽略极小的数值差异：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">near</span>(x, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>NA</code>表示”未知“，与其相关的比较运算结果都是<code>NA</code>：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span>        <span class="co">#&gt; NA</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="cn">NA</span>      <span class="co">#&gt; NA</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span>      <span class="co">#&gt; NA （不表示相等，而是“未知是否相等”）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>因此，不能用 <code>== NA</code> 检测缺失值。如下代码无效：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(dep_time <span class="sc">==</span> <span class="cn">NA</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 返回0行，因为 dep_time == NA 得到 NA，filter 会忽略</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>要检测缺失值要使用<code>is.na()</code>函数，比如：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">NA</span>, <span class="cn">FALSE</span>))   <span class="co">#&gt; FALSE TRUE FALSE</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>))          <span class="co">#&gt; FALSE TRUE FALSE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>is.na()</code>函数可用于辅助排序：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 将 NA 排在前面</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month <span class="sc">==</span> <span class="dv">1</span>, day <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">is.na</span>(dep_time)), dep_time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="管道符" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="管道符"><span class="header-section-number">4.3</span> 管道符</h2>
-<p>RStuido中管道符快捷键为 Ctrl + Shift + M。</p>
-<p>tidyverse 推荐使用原生管道 <code>|&gt;</code>，符号前后各留一个空格。管道符通常置于<strong>行尾</strong>，方便续写。例如：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span>  </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(arr_delay), <span class="sc">!</span><span class="fu">is.na</span>(tailnum)) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(dest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>若函数（如 <code>summarize()</code>）包含命名参数，每个参数独立成行。而无命名参数（如 <code>filter()</code>）可根据行的长度决定是否换行。</p>
-<p>管道中各层<strong>缩进两格</strong>。若参数分行书写，则进一步缩进。闭括号 <code>)</code> 建议单独成行。下方代码格式为例：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span>  </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tailnum) <span class="sc">|&gt;</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>尽管有些简单操作可一行完成，但建议从一开始就分层书写，为后续扩展留出余地：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 简洁但维护性差</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">y =</span> x <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 更推荐写法</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>若管道超过 10–15 行，建议引入<strong>中间变量</strong>，分阶段处理，尤其是在数据结构发生重大变化时（如 <code>pivot</code>, <code>summarize</code>）。</p>
+<section id="布尔代数" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="布尔代数"><span class="header-section-number">12.3</span> 布尔代数</h2>
+<p>使用布尔代数可将多个逻辑向量进行组合。</p>
+<ul>
+<li><p><code>&amp;</code>：与（and）</p></li>
+<li><p><code>|</code>：或（or）</p></li>
+<li><p><code>!</code>：非（not）</p></li>
+<li><p><code>xor()</code>：异或（exclusive or）</p></li>
+</ul>
+<p><img src="https://r4ds.hadley.nz/diagrams/transform.png" class="img-fluid"></p>
+<p>另外还有<code>&amp;&amp;</code>和<code>||</code>，但它们是短路逻辑操作符，只返回一个布尔值，故适用于编程控制流（如 if 语句），而非数据分析。</p>
+<p>在布尔运算中，与<code>NA</code>相关的运算颇为抽象，如下：</p>
+<blockquote class="blockquote">
+<p><code>NA | TRUE</code> = <code>TRUE</code>：因为 <code>NA</code> 可能是 <code>TRUE</code>，总有一项为真；</p>
+<p><code>NA | FALSE</code> = <code>NA</code>：因为结果取决于 <code>NA</code> 的真假，无法确定；</p>
+<p><code>NA &amp; TRUE</code> = <code>NA</code>：是否为真依赖 <code>NA</code> 的真假，无法确定；</p>
+<p><code>NA &amp; FALSE</code> = <code>FALSE</code>：一项为假，整体为假。</p>
+</blockquote>
+<p>书写布尔代数表达式时注意不要用日常说话的语序，比如若要筛选11月或12月的航班，错误示例：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>正确写法：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> month <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>或更推荐：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">12</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>x %in% y</code> 判断 <code>x</code> 中的每个元素是否在向量 <code>y</code> 中，返回逻辑向量。等价于多个 <code>==</code> 和 <code>|</code> 联合使用，但语法更简洁，逻辑更清晰。比如：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">12</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">11</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TRUE FALSE ... TRUE ... TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>同时注意与<code>NA</code>相关的运算，比如：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>) <span class="sc">%in%</span> <span class="cn">NA</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; FALSE FALSE TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ggplot2-格式规范" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="ggplot2-格式规范"><span class="header-section-number">4.4</span> ggplot2 格式规范</h2>
-<p>ggplot2 中的图层添加使用 <code>+</code>，应置于行尾，格式上与管道 <code>|&gt;</code> 保持一致：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(month) <span class="sc">|&gt;</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> delay)) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>参数较多时建议换行并对齐，提升可读性：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dest) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance =</span> <span class="fu">mean</span>(distance),</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">speed =</span> <span class="fu">mean</span>(distance <span class="sc">/</span> air_time, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> distance, <span class="at">y =</span> speed)) <span class="sc">+</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"loess"</span>,</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">span =</span> <span class="fl">0.5</span>,</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>, </span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">4</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>需注意，<code>+</code> 与 <code>|&gt;</code> 的格式有时无法完全统一，因为 ggplot2 比管道符出现得更早，故尚难以在设计上兼容。</p>
+<section id="逻辑汇总" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="逻辑汇总"><span class="header-section-number">12.4</span> 逻辑汇总</h2>
+<ol type="1">
+<li><p>逻辑汇总函数</p>
+<p><code>any(x)</code> 相当于逻辑“或”，只要 <code>x</code> 中存在任意一个 <code>TRUE</code> 就返回 <code>TRUE</code>。 <code>all(x)</code> 相当于逻辑“与”，只有当 <code>x</code> 中所有值都是 <code>TRUE</code> 时才返回 <code>TRUE</code>。</p></li>
+<li><p>数值汇总函数</p>
+<p>逻辑向量在数值情境下会自动转换：<code>TRUE</code> 变成 1，<code>FALSE</code> 变成 0。从而可用<code>sum()</code> 统计 <code>TRUE</code> 的个数，<code>mean()</code> 计算 <code>TRUE</code> 的比例</p></li>
+<li><p>逻辑子集筛选</p>
+<p>逻辑向量可以用来对单个变量进行子集筛选，主要利用中括号<code>[]</code>。形如：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>arr_delay[arr_delay <span class="sc">&lt;</span> <span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
 </section>
-<section id="分节注释" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="分节注释"><span class="header-section-number">4.5</span> 分节注释</h2>
-<p>在脚本较长时，可用注释划分逻辑区域，例如：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data --------------------------------------</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data --------------------------------------</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>RStudio 支持导航栏跳转：使用 Ctrl + Shift + R 插入分节注释，并快速定位不同部分。</p>
-<hr>
-</section>
-<section id="练手" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="练手"><span class="header-section-number">4.6</span> 练手</h2>
-<p><strong>示例一：</strong></p>
-<p>原始代码：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>flights<span class="sc">|&gt;</span><span class="fu">filter</span>(dest<span class="sc">==</span><span class="st">"IAH"</span>)<span class="sc">|&gt;</span><span class="fu">group_by</span>(year,month,day)<span class="sc">|&gt;</span><span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">delay=</span><span class="fu">mean</span>(arr_delay,<span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">|&gt;</span><span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>规范格式：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"IAH"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">|&gt;</span> </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>示例二：</strong></p>
-<p>原始代码：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>flights<span class="sc">|&gt;</span><span class="fu">filter</span>(carrier<span class="sc">==</span><span class="st">"UA"</span>,dest<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">"IAH"</span>,<span class="st">"HOU"</span>),sched_dep_time<span class="sc">&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0900</span>,sched_arr_time<span class="sc">&lt;</span><span class="dv">2000</span>)<span class="sc">|&gt;</span><span class="fu">group_by</span>(flight)<span class="sc">|&gt;</span><span class="fu">summarize</span>(<span class="at">delay=</span><span class="fu">mean</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>arr_delay,<span class="at">na.rm=</span><span class="cn">TRUE</span>),<span class="at">cancelled=</span><span class="fu">sum</span>(<span class="fu">is.na</span>(arr_delay)),<span class="at">n=</span><span class="fu">n</span>())<span class="sc">|&gt;</span><span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>规范格式：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    carrier <span class="sc">==</span> <span class="st">"UA"</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    dest <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"IAH"</span>, <span class="st">"HOU"</span>),</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    sched_dep_time <span class="sc">&gt;</span>  <span class="dv">0900</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    sched_arr_time <span class="sc">&lt;</span> <span class="dv">2000</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(flight) <span class="sc">|&gt;</span> </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">cancelled =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(arr_delay)),</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="条件转换" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="条件转换"><span class="header-section-number">12.5</span> 条件转换</h2>
+<p>若想在某个条件为 <code>TRUE</code> 时使用一个值，为 <code>FALSE</code> 时使用另一个值时，可以使用 <code>dplyr::if_else()</code>函数。</p>
+<p>主要用 <code>if_else()</code> 前三个参数：</p>
+<ol type="1">
+<li><p><code>condition</code> ：逻辑向量；</p></li>
+<li><p><code>&lt;true&gt;</code> ：条件为 <code>TRUE</code> 时输出的值或向量；</p></li>
+<li><p><code>&lt;false&gt;</code> ：条件为 <code>FALSE</code> 时输出的值或向量。</p></li>
+</ol>
+<p>例如：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">2</span>, <span class="cn">NA</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"非负"</span>, <span class="st">"负"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"负"</span>   <span class="st">"负"</span>   <span class="st">"负"</span>   <span class="st">"非负"</span> <span class="st">"非负"</span> <span class="cn">NA</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>可选的第四个参数称为为 <code>missing</code>，可用自定义值替换<code>NA</code> 值：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"非负"</span>, <span class="st">"负"</span>, <span class="st">"secret"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"负"</span>    <span class="st">"负"</span>    <span class="st">"负"</span>    <span class="st">"非负"</span>  <span class="st">"非负"</span>  <span class="st">"secret"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>还有一种条理更清晰的函数<code>case_when()</code>，使用方式为：<code>条件 ~ 输出</code>，类似分段函数。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">case_when</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     x <span class="sc">==</span> <span class="dv">0</span>   <span class="sc">~</span> <span class="st">"0"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     x <span class="sc">&lt;</span> <span class="dv">0</span>    <span class="sc">~</span> <span class="st">"-"</span>, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     x <span class="sc">&gt;</span> <span class="dv">0</span>    <span class="sc">~</span> <span class="st">"+"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">is.na</span>(x) <span class="sc">~</span> <span class="st">"secret"</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> )</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"-"</span>      <span class="st">"-"</span>      <span class="st">"0"</span>      <span class="st">"+"</span>      <span class="st">"+"</span>     <span class="st">"secret"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>若想提供默认值，可使用 <code>.default = "&lt;默认值&gt;"</code></p>
+<p>如果有多个条件同时为 <code>TRUE</code>，只会对应第一个匹配的。</p>
+<p>需要注意，<code>TRUE</code>和<code>FALSE</code>对应输出的值必须兼容，比如字符串和数值不兼容。以下为常见的兼容类型：</p>
+<ul>
+<li>数值与逻辑向量兼容</li>
+<li>字符串与因子类型兼容</li>
+<li><code>NA</code> 与所有类型兼容</li>
+</ul>
 
 
 </section>
@@ -847,13 +836,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/ch3_data_transformation.html" class="pagination-link" aria-label="数据处理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据处理</span></span>
+      <a href="../chapters/ch11_communication.html" class="pagination-link" aria-label="解释性图表">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">解释性图表</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/ch5_data_tidying.html" class="pagination-link" aria-label="数据整洁化">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据整洁化</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/ch13_numbers.html" class="pagination-link" aria-label="数值处理">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">数值处理</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -862,4 +851,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch4_workflow_code_style.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch4_workflow_code_style.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch12_logical_vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch12_logical_vectors.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
