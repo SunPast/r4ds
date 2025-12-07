@@ -5,6 +5,10 @@ book:
   title: "R4DS Notes from DJ"
   author: "Jia Ding"
   date: "2025/11/22"
+  search: true
+  repo-url: https://github.com/SunPast/r4ds
+  repo-actions: [edit, issue, source]
+  sharing: [twitter, facebook]
   chapters:
     - index.qmd
     - intro.qmd
@@ -19,10 +23,10 @@ book:
     - chapters/ch9_layers.qmd
     - chapters/ch10_exploratory_data_analysis.qmd
     - chapters/ch11_communication.qmd
-    # - chapters/ch12_logical_vectors.qmd
-    # - chapters/ch13_numbers.qmd
-    # - chapters/ch14_strings.qmd
-    # - chapters/ch15_regular_expressions.qmd
+    - chapters/ch12_logical_vectors.qmd
+    - chapters/ch13_numbers.qmd
+    - chapters/ch14_strings.qmd
+    - chapters/ch15_regular_expressions.qmd
     # - chapters/ch16_factors.qmd
     # - chapters/ch17_dates_and_times.qmd
     # - chapters/ch18_missing_values.qmd
@@ -51,13 +55,9 @@ format:
       - brand
     toc: true
     toc-depth: 2
-    navbar:
-      right:
-        - text: "Source Code"
-          href: "https://github.com/SunPast/r4ds"
-          icon: "fab fa-github"
-        - text: "Toggle Reader Mode"
-          type: toggle-reader
+
+comments:
+  hypothesis: true
 
 editor: visual
 

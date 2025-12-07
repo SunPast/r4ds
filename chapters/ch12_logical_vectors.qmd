@@ -1,0 +1,217 @@
+---
+title: "逻辑向量"
+format: html
+---
+
+## 引言
+
+逻辑向量中的元素只有三种值：`TRUE`、`FALSE`、`NA`。
+
+本章用到下列R包：
+
+```R
+library(tidyverse)
+library(nycflights13) #航班数据
+```
+
+
+
+## 比较运算
+
+创建逻辑向量的最常用方法是使用比较运算符：`<`、`<=`、`>`、`>=`、`!=` 和 `==`。
+
+比如在`filter()`函数中的比较运算符用于筛选数据：
+
+```R
+flights |> 
+  filter(dep_time > 600 & dep_time < 2000 & abs(arr_delay) < 20)
+```
+
+或者在`mutate()`函数中用于限定：
+
+```R
+flights |> 
+  mutate(
+    daytime = dep_time > 600 & dep_time < 2000,
+    approx_ontime = abs(arr_delay) < 20,
+    .keep = "used"
+  )
+```
+
+在进行比较运算时，注意与浮点数相关的运算不能用`==`，因为计算机表示小数时存在精度误差。错误示范：
+
+```R
+x <- c(1 / 49 * 49, sqrt(2) ^ 2)
+x == c(1, 2)
+#> [1] FALSE FALSE
+```
+
+解决方法是使用 `dplyr::near()` 函数，可忽略极小的数值差异：
+
+```R
+near(x, c(1, 2))
+#> [1] TRUE TRUE
+```
+
+`NA`表示”未知“，与其相关的比较运算结果都是`NA`：
+
+```R
+NA > 5        #> NA
+10 == NA      #> NA
+NA == NA      #> NA （不表示相等，而是“未知是否相等”）
+```
+
+因此，不能用 `== NA` 检测缺失值。如下代码无效：
+
+```R
+flights |> filter(dep_time == NA)
+#> 返回0行，因为 dep_time == NA 得到 NA，filter 会忽略
+```
+
+要检测缺失值要使用`is.na()`函数，比如：
+
+```R
+is.na(c(TRUE, NA, FALSE))   #> FALSE TRUE FALSE
+is.na(c(1, NA, 3))          #> FALSE TRUE FALSE
+```
+
+`is.na()`函数可用于辅助排序：
+
+```R
+# 将 NA 排在前面
+flights |> 
+  filter(month == 1, day == 1) |> 
+  arrange(desc(is.na(dep_time)), dep_time)
+```
+
+
+
+## 布尔代数
+
+使用布尔代数可将多个逻辑向量进行组合。
+
+- `&`：与（and）
+
+- `|`：或（or）
+
+- `!`：非（not）
+
+- `xor()`：异或（exclusive or）
+
+![](https://r4ds.hadley.nz/diagrams/transform.png)
+
+另外还有`&&`和`||`，但它们是短路逻辑操作符，只返回一个布尔值，故适用于编程控制流（如 if 语句），而非数据分析。
+
+在布尔运算中，与`NA`相关的运算颇为抽象，如下：
+
+> `NA | TRUE` = `TRUE`：因为 `NA` 可能是 `TRUE`，总有一项为真；
+>
+> `NA | FALSE` = `NA`：因为结果取决于 `NA` 的真假，无法确定；
+>
+> `NA & TRUE` = `NA`：是否为真依赖 `NA` 的真假，无法确定；
+>
+> `NA & FALSE` = `FALSE`：一项为假，整体为假。
+
+书写布尔代数表达式时注意不要用日常说话的语序，比如若要筛选11月或12月的航班，错误示例：
+
+```R
+flights |> filter(month == 11 | 12)
+```
+
+正确写法：
+
+```R
+flights |> filter(month == 11 | month == 12)
+```
+
+或更推荐：
+
+```R
+flights |> filter(month %in% c(11, 12))
+```
+
+`x %in% y` 判断 `x` 中的每个元素是否在向量 `y` 中，返回逻辑向量。等价于多个 `==` 和 `|` 联合使用，但语法更简洁，逻辑更清晰。比如：
+
+```R
+1:12 %in% c(1, 5, 11)
+#> TRUE FALSE ... TRUE ... TRUE
+```
+
+同时注意与`NA`相关的运算，比如：
+
+```R
+c(1, 2, NA) %in% NA
+#> FALSE FALSE TRUE
+```
+
+
+
+## 逻辑汇总
+
+1. 逻辑汇总函数
+
+   `any(x)` 相当于逻辑“或”，只要 `x` 中存在任意一个 `TRUE` 就返回 `TRUE`。
+   `all(x)` 相当于逻辑“与”，只有当 `x` 中所有值都是 `TRUE` 时才返回 `TRUE`。
+
+2. 数值汇总函数
+
+   逻辑向量在数值情境下会自动转换：`TRUE` 变成 1，`FALSE` 变成 0。从而可用`sum()` 统计 `TRUE` 的个数，`mean()` 计算 `TRUE` 的比例
+
+3. 逻辑子集筛选
+
+   逻辑向量可以用来对单个变量进行子集筛选，主要利用中括号`[]`。形如：
+
+   ```R
+   arr_delay[arr_delay < 0]
+   ```
+
+   
+
+## 条件转换
+
+若想在某个条件为 `TRUE` 时使用一个值，为 `FALSE` 时使用另一个值时，可以使用 `dplyr::if_else()`函数。
+
+主要用 `if_else()` 前三个参数：
+
+1.  `condition` ：逻辑向量；
+
+2.  `<true>` ：条件为 `TRUE` 时输出的值或向量；
+
+3.  `<false>` ：条件为 `FALSE` 时输出的值或向量。
+
+例如：
+
+```R
+> x <- c(-2:2, NA)
+> if_else(x > 0, "非负", "负")
+[1] "负"   "负"   "负"   "非负" "非负" NA 
+```
+
+ 可选的第四个参数称为为 `missing`，可用自定义值替换`NA` 值：
+
+ ```R
+ > if_else(x > 0, "非负", "负", "secret")
+ [1] "负"    "负"    "负"    "非负"  "非负"  "secret"
+ ```
+
+还有一种条理更清晰的函数`case_when()`，使用方式为：`条件 ~ 输出`，类似分段函数。
+
+```R
+> case_when(
++     x == 0   ~ "0",
++     x < 0    ~ "-", 
++     x > 0    ~ "+",
++     is.na(x) ~ "secret"
++ )
+[1] "-"      "-"      "0"      "+"      "+"     "secret"
+```
+
+若想提供默认值，可使用 `.default = "<默认值>"`
+
+如果有多个条件同时为 `TRUE`，只会对应第一个匹配的。
+
+需要注意，`TRUE`和`FALSE`对应输出的值必须兼容，比如字符串和数值不兼容。以下为常见的兼容类型：
+
+- 数值与逻辑向量兼容
+- 字符串与因子类型兼容
+- `NA` 与所有类型兼容

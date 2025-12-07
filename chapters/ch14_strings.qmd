@@ -1,0 +1,438 @@
+---
+title: "字符串处理"
+format: html
+---
+
+## 引言
+
+本章深入介绍如何创建、处理和提取字符串，重点使用 `stringr` 包（属于tidyverse）提供的一系列以 `str_` 开头的函数。
+
+本章需要用到以下R包：
+
+```R
+ibrary(tidyverse)
+library(babynames)  # 婴儿名字数据
+```
+
+
+
+## 创建字符串
+
+字符串可使用单引号或双引号创建，一般情况建议统一使用双引号：
+
+```R
+string1 <- "This is a string"
+string2 <- 'Use single quotes if the string contains "quotes"'
+```
+
+若未闭合引号，控制台将显示 `+` 作为继续提示，按 `Esc` 可退出。
+
+若字符串中包含引号或反斜杠 `\`，需使用转义字符：
+
+```R
+double_quote <- "\""  # 双引号
+single_quote <- '\''  # 单引号
+backslash <- "\\"     # 反斜杠
+```
+
+注意：R 打印时会自动显示转义字符，但真实内容并不包含它们。可使用 `str_view()` 查看，显示的是实际字符，而不是转义形式：
+
+```R
+x <- c(single_quote, double_quote, backslash)
+str_view(x)
+[1] │ '
+[2] │ "
+[3] │ \
+```
+
+另有其他转义符如下：
+
+| 转义序列 | 含义         |
+| -------- | ------------ |
+| `\n`     | 换行符       |
+| `\t`     | 制表符       |
+| `\uXXXX` | Unicode 字符 |
+
+```R
+x <- c("one\ntwo", "one\ttwo", "\u00b5", "\U0001f604")
+str_view(x)
+[1] │ one
+    │ two
+[2] │ one{\t}two
+[3] │ µ
+[4] │ 😄
+```
+
+> 其中 `{}` 是 `str_view()` 用来清晰显示不可见字符（如 tab）的可视化处理方式。
+
+字符串中若包含大量引号或反斜杠（如嵌入代码片段），会出现所谓“倾斜牙签综合征”（leaning toothpick syndrome），即转义符过多导致难以阅读。可用原始字符串语法解决。
+
+原始字符串以 `r"()"` 包裹，括号内部的转义符失效。如 `\n` 不会被解释为换行，而是字面意义上的两个字符。但是若内容中包含 `)"`，仍需规避，可使用 `r"[]"`、`r"{}"` 或`r"---()---"`，提高灵活性。
+
+
+
+
+
+## 构造字符串
+
+`str_c()`函数用于拼接字符串。它可接收若干向量作为参数，返回一个字符向量。例如：
+
+```R
+str_c("x", "y", "z")           # "xyz"
+str_c("Hello ", c("John", "Susan"))
+#> "Hello John" "Hello Susan"
+str_c(c("Hello ","Hi "), c("John", "Susan"))
+#> "Hello John" "Hi Susan"  
+```
+
+适用于`mutate()`，且合理处理缺失值 NA：
+
+```R
+df <- tibble(name = c("Flora", "David", "Terra", NA))
+df |> mutate(greeting = str_c("Hi ", name, "!"))
+#> name    greeting
+#> Flora   Hi Flora!
+#> David   Hi David!
+#> Terra   Hi Terra!
+#> NA      NA
+```
+
+ `coalesce()` 函数可以用自定义值替换缺失值：
+
+```R
+df |> 
+  mutate(
+    greeting1 = str_c("Hi ", coalesce(name, "you"), "!"),
+    greeting2 = coalesce(str_c("Hi ", name, "!"), "Hi!")
+  )
+```
+
+- `greeting1`：缺失值用 `"you"` 代替，结果是 `"Hi you!"`
+- `greeting2`：拼接结果为 `NA` 时整体替换为 `"Hi!"`
+
+
+
+使用 `str_c()` 拼接多个变量和文字，会写很多 `"` 和 `,`，可读性差。这时可以使用 `glue` 包提供的 `str_glue()` 函数：
+
+```R
+df |> mutate(greeting = str_glue("Hi {name}!"))
+#> Flora   Hi Flora!
+#> David   Hi David!
+#> NA      Hi NA!
+```
+
+- `{}` 中嵌入变量名
+- 缺失值会被转为字符串 `"NA"`（注意与 `str_c()` 会生成 `NA`不同）
+
+如果要在字符串中保留大括号 `{}` 本身，需要使用双大括号转义：
+
+```R
+str_glue("{{Hi {name}!}}")
+#> "{Hi Flora!}" ...
+```
+
+在 `summarize()` 中将多个字符串合并，使用 `str_flatten()`。
+
+```R
+str_flatten(c("x", "y", "z"))                      # "xyz"
+str_flatten(c("x", "y", "z"), ", ")                # "x, y, z"
+str_flatten(c("x", "y", "z"), ", ", last = ", and ")
+#> "x, y, and z"
+```
+
+
+
+
+
+
+
+
+## 从字符串中提取数据
+
+工作中经常会遇到多个变量挤在一个字符串中的情况。tidyr 提供了四个主力函数来提取这些变量：
+
+```R
+separate_longer_delim()      # 按分隔符拆分为多行
+separate_longer_position()   # 按固定宽度拆分为多行
+separate_wider_delim()       # 按分隔符拆分为多列
+separate_wider_position()    # 按固定宽度拆分为多列
+```
+
+- `longer` → 把一列拆成多行
+- `wider` → 把一列拆成多列
+- `delim` → 用分隔符
+- `position` → 用固定宽度
+
+
+
+拆成多行适用于每行元素个数不固定的情况。
+
+```R
+df1 <- tibble(x = c("a,b,c", "d,e", "f"))
+df1 |> 
+  separate_longer_delim(x, delim = ",")
+#> # A tibble: 6 × 1
+#>   x    
+#>   <chr>
+#> 1 a    
+#> 2 b    
+#> 3 c    
+#> 4 d    
+#> 5 e    
+#> 6 f
+```
+
+拆成多列适用于每个字符串的成分数固定，且需要展开为多个列的情况。
+
+```R
+df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
+df3 |> 
+  separate_wider_delim(
+    x,
+    delim = ".",
+    names = c("code", "edition", "year")
+  )
+#> # A tibble: 3 × 3
+#>   code  edition year 
+#>   <chr> <chr>   <chr>
+#> 1 a10   1       2022 
+#> 2 b10   2       2011 
+#> 3 e15   1       2015
+```
+
+如果某一部分不需要保留，用 `NA` 占位即可：
+
+```R
+df3 |> 
+  separate_wider_delim(
+    x,
+    delim = ".",
+    names = c("code", NA, "year")
+  )
+#> # A tibble: 3 × 2
+#>   code  year 
+#>   <chr> <chr>
+#> 1 a10   2022 
+#> 2 b10   2011 
+#> 3 e15   2015
+```
+
+有时警告拆分失败，需要进行排查。
+
+1. 组件数量不足（too few）
+
+```R
+df <- tibble(x = c("1-1-1", "1-1-2", "1-3", "1-3-2", "1"))
+
+df |> separate_wider_delim(
+  x,
+  delim = "-",
+  names = c("x", "y", "z")
+)
+```
+
+出现报错：某些行只有1或2个字段，不足3个。
+
+使用 `too_few = "debug"` 进入调试模式：
+
+```R
+debug <- df |> 
+  separate_wider_delim(
+    x,
+    delim = "-",
+    names = c("x", "y", "z"),
+    too_few = "debug"
+  )
+#> Warning: Debug mode activated: adding variables `x_ok`, `x_pieces`, and
+#> `x_remainder`.
+debug
+# A tibble: 5 × 6
+  x     y     z     x_ok  x_pieces x_remainder
+  <chr> <chr> <chr> <lgl>    <int> <chr>      
+1 1-1-1 1     1     TRUE         3 ""         
+2 1-1-2 1     2     TRUE         3 ""         
+3 1-3   3     NA    FALSE        2 ""         
+4 1-3-2 3     2     TRUE         3 ""         
+5 1     NA    NA    FALSE        1 ""         
+```
+
+新增列说明：
+
+- `x_ok`：是否符合预期
+- `x_pieces`：实际字段数量
+- `x_remainder`：剩余没分配的部分（对 too_many 更有用）
+
+可以用 `filter(!x_ok)` 快速筛出异常行。
+
+若只是想补齐 `NA` 继续处理，可使用：
+
+```R
+too_few = "align_start" # 从左对齐，补 NA 到右边
+too_few = "align_end"   # 从右对齐，补 NA 到左边
+```
+
+2. 组件过多（too many）
+
+```R
+df <- tibble(x = c("1-1-1", "1-1-2", "1-3-5-6", "1-3-2", "1-3-5-7-9"))
+
+df |> separate_wider_delim(
+  x,
+  delim = "-",
+  names = c("x", "y", "z")
+)
+```
+
+同样报错：有行多于3个字段。
+
+使用 `too_many = "debug"`开启调试：
+
+```R
+debug <- df |> separate_wider_delim(
+  x,
+  delim = "-",
+  names = c("x", "y", "z"),
+  too_many = "debug"
+)
+debug
+# A tibble: 5 × 6
+  x         y     z     x_ok  x_pieces x_remainder
+  <chr>     <chr> <chr> <lgl>    <int> <chr>      
+1 1-1-1     1     1     TRUE         3 ""         
+2 1-1-2     1     2     TRUE         3 ""         
+3 1-3-5-6   3     5     FALSE        4 "-6"       
+4 1-3-2     3     2     TRUE         3 ""         
+5 1-3-5-7-9 3     5     FALSE        5 "-7-9"   
+```
+
+可观察 `x_remainder` 中存放了多余部分。
+
+处理方法：
+
+- `too_many = "drop"`：多余字段丢弃
+- `too_many = "merge"`：合并多余字段到最后一列
+
+
+
+
+
+
+
+## 字母与子串处理
+
+本节介绍处理字符串中字母的基本函数。
+
+1. `str_length()`函数用于返回字符串的字符个数（包括空格和标点）：
+
+```R
+str_length(c("a", "R for data science", NA))
+#> [1]  1 18 NA
+```
+
+例如要统计小孩名字长度，并查看最长的名字：
+
+```R
+babynames |>
+  count(length = str_length(name), wt = n)
+babynames |> 
+  filter(str_length(name) == 15) |> 
+  count(name, wt = n, sort = TRUE)
+```
+
+2. `str_sub()`函数用于提取子串，基本参数如下：
+
+```R
+str_sub(string, start, end)
+```
+
+- 起始位置 `start` 和结束位置 `end` 为闭区间
+- 支持负数索引：`-1` 表示最后一个字符，`-2` 为倒数第二个，以此类推
+
+示例：
+
+```R
+x <- c("Apple", "Banana", "Pear")
+str_sub(x, 1, 3)
+#> [1] "App" "Ban" "Pea"
+str_sub(x, -3, -1)
+#> [1] "ple" "ana" "ear"
+```
+
+如果长度不足，函数会尽量返回可取部分，而不会报错：
+
+```R
+str_sub("a", 1, 5)
+#> [1] "a"
+```
+
+例如要提取名字首字母与尾字母
+
+```R
+babynames |> 
+  mutate(
+    first = str_sub(name, 1, 1),
+    last = str_sub(name, -1, -1)
+  )
+```
+
+
+
+
+
+
+
+## 非英文文本处理
+
+之前的内容主要处理英文文本。因为英文相对简单，原因有二：
+
+- 英文只有26个基础字母；
+- 计算机编码标准（如 ASCII）是由英语国家设计的，更偏向英文语境。
+
+处理非英语文本难免遇到意料之外的难题，包括字符编码问题、带变音符的字母、地区敏感的字符串排序与大小写转换。
+
+1. 字符编码
+
+字符编码决定了字符如何在底层以数字（字节）表示。
+
+```R
+charToRaw("Hadley")
+#> [1] 48 61 64 6c 65 79
+```
+
+这是 **ASCII 编码**，每个字符一个字节（如 48 对应 H）。
+
+如今通用编码是 **UTF-8**，可表达几乎所有语言的字符与表情符号（emoji）
+
+读取非UTF-8编码数据：
+
+```R
+read_csv(x1, locale = locale(encoding = "Latin1"))
+read_csv(x2, locale = locale(encoding = "Shift-JIS"))
+```
+
+如何判断编码？
+
+使用 `guess_encoding()` 可自动推测，建议在字符量较大的文本上使用。
+
+> 若文本打印乱码（比如所谓“锟斤拷”），通常就是编码不匹配。
+
+2. 字母变体
+
+带变音符的字母（如 ü）可能存在两种编码方式：
+
+- 单字符（预组合）：`\u00fc`
+- 双字符（分解组合）：`"u" + "\u0308"`
+
+```R
+u <- c("\u00fc", "u\u0308")
+str_length(u)
+#> [1] 1 2
+str_sub(u, 1, 1)
+#> [1] "ü" "u"
+```
+
+可见虽然视觉上一样，但实际上字符长度、内容不同。
+
+3. 函数的地区敏感性
+
+`locale`（语言-地区标识）会影响大小写转换与排序函数。此处不作赘述。
