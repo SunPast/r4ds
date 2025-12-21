@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; 引言 – R4DS Notes from DJ</title>
+<title>30&nbsp; Quarto Formats – R4DS Notes from DJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +20,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./chapters/ch1_data_visualization.html" rel="next">
-<link href="./index.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../afterword.html" rel="next">
+<link href="../chapters/ch28_quarto.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch29_quarto_formats.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto Formats</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -104,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R4DS Notes from DJ</a> 
+      <a href="../">R4DS Notes from DJ</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/SunPast/r4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -136,193 +171,193 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">序</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch1_data_visualization.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch1_data_visualization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch2_workflow_basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch2_workflow_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">工作流基础</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch3_data_transformation.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch3_data_transformation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch4_workflow_code_style.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch4_workflow_code_style.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">工作流之代码格式</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch5_data_tidying.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch5_data_tidying.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数据整洁化</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch6_workflow_scripts_projects.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch6_workflow_scripts_projects.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">脚本与项目</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch7_data_import.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch7_data_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">数据导入</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch8_workflow_getting_help.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch8_workflow_getting_help.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">工作流：获取帮助</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch9_layers.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch9_layers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">图层</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch10_exploratory_data_analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch10_exploratory_data_analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">探索性数据分析</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch11_communication.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch11_communication.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">解释性图表</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch12_logical_vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch12_logical_vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch13_numbers.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch13_numbers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">数值处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch14_strings.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch14_strings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">字符串处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch15_regular_expressions.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch15_regular_expressions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">正则表达式</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch16_factors.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch16_factors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">因子</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch17_dates_and_times.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch17_dates_and_times.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">日期与时间</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch18_missing_values.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch18_missing_values.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">缺失值</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch19_joins.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch19_joins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">连接</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch20_spreadsheets.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch20_spreadsheets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">电子表格</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch21_databases.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch21_databases.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">数据库</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch22_arrow.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch22_arrow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">arrow 包</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch23_hierarchical_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch23_hierarchical_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">层次化数据</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch24_web_scraping.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch24_web_scraping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">网页抓取</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch25_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch25_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">函数</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch26_iteration.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch26_iteration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">迭代</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch27_field_guide_base_R.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch27_field_guide_base_R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Base R 实战指南</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch28_quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch28_quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/ch29_quarto_formats.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch29_quarto_formats.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto Formats</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./afterword.html" class="sidebar-item-text sidebar-link">
+  <a href="../afterword.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">后记</span></span></a>
   </div>
 </li>
@@ -336,16 +371,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#引言" id="toc-引言" class="nav-link active" data-scroll-target="#引言">引言</a></li>
+  <li><a href="#引言" id="toc-引言" class="nav-link active" data-scroll-target="#引言"><span class="header-section-number">30.1</span> 引言</a></li>
+  <li><a href="#输出选项" id="toc-输出选项" class="nav-link" data-scroll-target="#输出选项"><span class="header-section-number">30.2</span> 输出选项</a></li>
+  <li><a href="#文档" id="toc-文档" class="nav-link" data-scroll-target="#文档"><span class="header-section-number">30.3</span> 文档</a></li>
+  <li><a href="#演示文稿" id="toc-演示文稿" class="nav-link" data-scroll-target="#演示文稿"><span class="header-section-number">30.4</span> 演示文稿</a></li>
+  <li><a href="#交互性" id="toc-交互性" class="nav-link" data-scroll-target="#交互性"><span class="header-section-number">30.5</span> 交互性</a></li>
+  <li><a href="#网站与图书" id="toc-网站与图书" class="nav-link" data-scroll-target="#网站与图书"><span class="header-section-number">30.6</span> 网站与图书</a></li>
+  <li><a href="#其他输出格式" id="toc-其他输出格式" class="nav-link" data-scroll-target="#其他输出格式"><span class="header-section-number">30.7</span> 其他输出格式</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch29_quarto_formats.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch29_quarto_formats.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></h1>
+<h1 class="title"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto Formats</span></h1>
 </div>
 
 
@@ -362,19 +403,164 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="引言" class="level1 unnumbered">
-<h1 class="unnumbered">引言</h1>
-<p><img src="https://r4ds.hadley.nz/diagrams/data-science/base.png" class="img-fluid"></p>
-<p>上图展示了完成一个数据科学项目的基本模型，也是全书的核心思想。</p>
+<section id="引言" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="引言"><span class="header-section-number">30.1</span> 引言</h2>
+<p>上节提到 Quarto 可用来生成 HTML 文档。本章将简要介绍用 Quarto 输出其他类型的文件。</p>
+<p>设置文档输出的方式有两种：</p>
+<ul>
+<li>修改 YAML 头部：</li>
+</ul>
+<pre><code>title: "Diamond sizes"
+format: html</code></pre>
+<ul>
+<li>手动调用 <code>quarto::quarto_render()</code>：</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"diamond-sizes.qmd"</span>, <span class="at">output_format =</span> <span class="st">"docx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<blockquote class="blockquote">
+<p><code>output_format</code> 参数可以接受一个值列表，故而能同时输出多种类型文件：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"diamond-sizes.qmd"</span>, <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"docx"</span>, <span class="st">"pdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</blockquote>
+</section>
+<section id="输出选项" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="输出选项"><span class="header-section-number">30.2</span> 输出选项</h2>
+<p>Quarto 给输出文件提供了多种选项。以下网址集合全部可选选项：https://quarto.org/docs/output-formats/all-formats.html。</p>
+<p>要修改默认选项，需使用<strong>扩展格式字段</strong>。例如，如果想渲染一个带浮动目录的 HTML，可以这样写：</p>
+<pre><code>format:
+  html:
+    toc: true
+    toc_float: true</code></pre>
+<p>还可以通过提供格式列表来渲染成多个输出：</p>
+<pre><code>format:
+  html:
+    toc: true
+    toc_float: true
+  pdf: default
+  docx: default</code></pre>
+<blockquote class="blockquote">
+<p><code>pdf: default</code>表示不修改任何默认选项</p>
+</blockquote>
+</section>
+<section id="文档" class="level2" data-number="30.3">
+<h2 data-number="30.3" class="anchored" data-anchor-id="文档"><span class="header-section-number">30.3</span> 文档</h2>
+<p>除了HTML，Quarto还可以生成其他类型的文档。</p>
+<ul>
+<li><code>pdf</code>：通过 LaTeX（一个开源文档排版系统）生成 PDF。</li>
+<li><code>docx</code>：生成 Microsoft Word（.docx）文档。</li>
+<li><code>odt</code>：生成 OpenDocument Text（.odt）文档。</li>
+<li><code>rtf</code>：生成富文本格式（.rtf）文档。</li>
+<li><code>gfm</code>：生成 GitHub 风格的 Markdown（.md）文档。</li>
+<li><code>ipynb</code>：生成 Jupyter Notebook（.ipynb）。</li>
+</ul>
+<p>在生成共享文档时，应隐藏源代码，仅保留执行结果。可在文档 YAML 中更改全局选项：</p>
+<pre><code>execute:
+  echo: false</code></pre>
+</section>
+<section id="演示文稿" class="level2" data-number="30.4">
+<h2 data-number="30.4" class="anchored" data-anchor-id="演示文稿"><span class="header-section-number">30.4</span> 演示文稿</h2>
+<p>Quarto 还能用来制作演示文稿。虽然它在视觉控制方面不如 Keynote 或 PowerPoint 灵活，但能自动插入 R 代码的结果，节省大量时间。</p>
+<p>演示文稿的工作方式是将内容分割成幻灯片，每遇到一个二级标题（<code>##</code>）时，就会开始一个新的幻灯片。而一级标题（<code>#</code>）表示一个新章节的开始，会生成一个章节标题幻灯片，且默认在页面居中。</p>
+<p>Quarto 支持多种演示文稿格式，包括：</p>
+<ul>
+<li><code>revealjs</code> —— 使用 revealjs 制作的 HTML 演示文稿</li>
+<li><code>pptx</code> —— PowerPoint 演示文稿</li>
+<li><code>beamer</code> —— 使用 LaTeX Beamer 制作的 PDF 演示文稿</li>
+</ul>
+</section>
+<section id="交互性" class="level2" data-number="30.5">
+<h2 data-number="30.5" class="anchored" data-anchor-id="交互性"><span class="header-section-number">30.5</span> 交互性</h2>
+<p>使用 Quarto 创建的 HTML 文档也可以包含交互组件。下面介绍两种在 Quarto 文档中加入交互的方式：<strong>htmlwidgets</strong> 和 <strong>Shiny</strong>。</p>
+<hr>
+<section id="htmlwidgets" class="level3" data-number="30.5.1">
+<h3 data-number="30.5.1" class="anchored" data-anchor-id="htmlwidgets"><span class="header-section-number">30.5.1</span> htmlwidgets</h3>
+<p>HTML本身就是交互式格式，而通过htmlwidgets（一种能生成交互式HTML可视化的R函数包）可以充分利用这一特性。例如下面这串代码生成一个leaflet交互式地图，但只能在网页端查看并操作。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setView</span>(<span class="fl">174.764</span>, <span class="sc">-</span><span class="fl">36.877</span>, <span class="at">zoom =</span> <span class="dv">16</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="fl">174.764</span>, <span class="sc">-</span><span class="fl">36.877</span>, <span class="at">popup =</span> <span class="st">"Maungawhau"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>有很多 R 包都可以提供 htmlwidgets，包括：</p>
+<ul>
+<li><strong>dygraphs</strong> —— 交互式时间序列可视化</li>
+<li><strong>DT</strong> —— 交互式表格</li>
+<li><strong>threejs</strong> —— 交互式 3D 图形</li>
+<li><strong>DiagrammeR</strong> —— 图表（如流程图、简单的节点-链接图）</li>
+</ul>
+<hr>
+</section>
+<section id="shiny" class="level3" data-number="30.5.2">
+<h3 data-number="30.5.2" class="anchored" data-anchor-id="shiny"><span class="header-section-number">30.5.2</span> Shiny</h3>
+<p>htmlwidgets 所有交互都发生在浏览器中，与 R 无关。而 <strong>Shiny</strong> 与之相对，是一个能让我们用 R 代码创建交互的包。</p>
+<p>要在 Quarto 文档中调用 Shiny 代码，可以在 YAML 头部添加：</p>
+<pre><code>title: "Shiny Web App"
+format: html
+server: shiny</code></pre>
+<p>然后，使用<strong>输入函数</strong>向文档添加交互组件：</p>
+<pre><code>library(shiny)
+
+textInput("name", "What is your name?")
+numericInput("age", "How old are you?", NA, min = 0, max = 150)</code></pre>
+<p>这些代码会生成两个输入框：</p>
+<p><img src="https://r4ds.hadley.nz/quarto/quarto-shiny.png" class="img-fluid"></p>
+<p>可以用 <code>input$name</code> 和 <code>input$age</code> 引用输入值，当输入值更改时相关代码也会自动更新。</p>
+<p>Shiny 的交互发生在<strong>服务器端</strong>，故而相关应用需要 Shiny 服务器才能在线运行。</p>
+<p>想进一步学习 Shiny，推荐阅读 <a href="https://mastering-shiny.org" title="《Mastering Shiny》">《Mastering Shiny》</a>。</p>
+</section>
+</section>
+<section id="网站与图书" class="level2" data-number="30.6">
+<h2 data-number="30.6" class="anchored" data-anchor-id="网站与图书"><span class="header-section-number">30.6</span> 网站与图书</h2>
+<p>通过简单配置，Quarto 可生成完整网站或图书：</p>
 <ol type="1">
-<li><p>导入。读取文本文件、数据库或 API 数据，是整个流程的起点。</p></li>
-<li><p>规整。通过结构化与清洗，使数据具有一致的语义形式，便于后续分析。</p></li>
-<li><p>转换。包含筛选、创建变量、变换尺度、生成汇总统计等操作。</p></li>
-<li><p>可视化。以图形揭示模式、验证假设，使数据关系得以直观呈现。</p></li>
-<li><p>建模。在可视化基础上进行定量推断，是进一步精确回答问题的工具。</p></li>
-<li><p>交流。通过图表、模型与文档向他人清晰传递数据分析的过程与结论。</p></li>
+<li>将所有 <code>.qmd</code> 文件置于同一目录，<code>index.qmd</code> 会自动成为首页</li>
+<li>创建 <code>_quarto.yml</code> 文件并指定项目类型为<code>website</code>或<code>book</code>。</li>
 </ol>
-<p>上述六个步骤均依赖稳定的编程能力。数据科学并非要求精湛的程序设计，但掌握必要的编码技能可显著提升分析效率，使工作流更具连贯性与可复用性。</p>
+<p>网站示例：</p>
+<pre><code>project:
+  type: website
+
+website:
+  title: "A website on color scales"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: viridis-colors.qmd
+        text: Viridis colors
+      - href: terrain-colors.qmd
+        text: Terrain colors</code></pre>
+<p>图书示例：</p>
+<pre><code>project:
+  type: book
+
+book:
+  title: "A book on color scales"
+  author: "Jane Coloriste"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - viridis-colors.qmd
+    - terrain-colors.qmd
+
+format:
+  html:
+    theme: cosmo
+  pdf: default
+  epub: default</code></pre>
+<blockquote class="blockquote">
+<p>参考链接：</p>
+<ul>
+<li><a href="https://quarto.org/docs/websites" title="Quarto 网站开发">Quarto 网站开发</a></li>
+<li><a href="https://quarto.org/docs/books" title="Quarto 图书制作">Quarto 图书制作</a></li>
+</ul>
+</blockquote>
+</section>
+<section id="其他输出格式" class="level2" data-number="30.7">
+<h2 data-number="30.7" class="anchored" data-anchor-id="其他输出格式"><span class="header-section-number">30.7</span> 其他输出格式</h2>
+<p>Quarto 还能以各种格式输出，以下再列两例：</p>
+<ul>
+<li>参考<a href="https://quarto.org/docs/journals/templates.html" title="模板库">模板库</a>，输出期刊文章。</li>
+<li>使用<code>format: ipynb</code>输出 Jupyter Notebook。</li>
+</ul>
+<p>参考<a href="https://quarto.org/docs/output-formats/all-formats.html" title="Quarto格式集合网站">Quarto格式集合网站</a>可了解更多输出格式。</p>
 
 
 </section>
@@ -782,13 +968,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="序">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">序</span>
+      <a href="../chapters/ch28_quarto.html" class="pagination-link" aria-label="Quarto">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapters/ch1_data_visualization.html" class="pagination-link" aria-label="数据可视化">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据可视化</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../afterword.html" class="pagination-link" aria-label="后记">
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">后记</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -797,4 +983,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SunPast/r4ds/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch29_quarto_formats.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch29_quarto_formats.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

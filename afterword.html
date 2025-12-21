@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; 引言 – R4DS Notes from DJ</title>
+<title>31&nbsp; 后记 – R4DS Notes from DJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapters/ch1_data_visualization.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./chapters/ch29_quarto_formats.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -89,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./afterword.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">后记</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -142,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></span></a>
   </div>
 </li>
@@ -322,7 +321,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./afterword.html" class="sidebar-item-text sidebar-link">
+  <a href="./afterword.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">后记</span></span></a>
   </div>
 </li>
@@ -336,16 +335,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#引言" id="toc-引言" class="nav-link active" data-scroll-target="#引言">引言</a></li>
+  <li><a href="#后记" id="toc-后记" class="nav-link active" data-scroll-target="#后记">后记</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/afterword.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/afterword.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></h1>
+<h1 class="title"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">后记</span></h1>
 </div>
 
 
@@ -362,19 +361,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="引言" class="level1 unnumbered">
-<h1 class="unnumbered">引言</h1>
-<p><img src="https://r4ds.hadley.nz/diagrams/data-science/base.png" class="img-fluid"></p>
-<p>上图展示了完成一个数据科学项目的基本模型，也是全书的核心思想。</p>
-<ol type="1">
-<li><p>导入。读取文本文件、数据库或 API 数据，是整个流程的起点。</p></li>
-<li><p>规整。通过结构化与清洗，使数据具有一致的语义形式，便于后续分析。</p></li>
-<li><p>转换。包含筛选、创建变量、变换尺度、生成汇总统计等操作。</p></li>
-<li><p>可视化。以图形揭示模式、验证假设，使数据关系得以直观呈现。</p></li>
-<li><p>建模。在可视化基础上进行定量推断，是进一步精确回答问题的工具。</p></li>
-<li><p>交流。通过图表、模型与文档向他人清晰传递数据分析的过程与结论。</p></li>
-</ol>
-<p>上述六个步骤均依赖稳定的编程能力。数据科学并非要求精湛的程序设计，但掌握必要的编码技能可显著提升分析效率，使工作流更具连贯性与可复用性。</p>
+<section id="后记" class="level1 unnumbered">
+<h1 class="unnumbered">后记</h1>
+<p>本次笔记合集到此告一段落。能有机会在此与诸君分享这本笔记合集，实属荣幸。相较于前一合集《生信数据技能》，我在编写此合集的过程中又有了新的感悟。</p>
+<p>首先，知识是学不完的。生信的蓝海之大，常令我嗟叹。R 语言在生信中不过沧海一粟，然而光是这一粟，便足以让人日复一日在文档与资料里沉湎。翻阅资料的时间越长，就越能体会到一个朴素的事实：我这一生所能触及的，只可能是自身的边界，而决非生信的尽头。</p>
+<p>其次，人脑是很健忘的。重要的资料翻看多少遍都不为过。不过若只是单纯过了眼瘾，手不跟着眼实操，就会“朝闻道，夕忘道”。有时我翻看自己从前写的推文，偶尔也会生出一种陌生的恍惚感。知识常看常新，代码越练越精！</p>
+<p>最后，生命总是向上的。去年动笔写《生信数据技能》的笔记时，满篇代码如天书般横亘眼前，越读越觉得高深莫测。而今再度翻阅，略加思索便能理解大半。至于这本《R for Data Science》，对于目前的我其中仍有一些部分并不算熟练，但这又何妨？未来的我，必将在今日的基石上拾级而进。</p>
+<p>此笔记合集虽经反复斟酌，然限于学识与视野，疏漏与偏误在所难免。恳请读者不吝指正，共同探讨、互相砥砺，愿与诸君在思维的激荡中，共同精进。</p>
+<p>丁加</p>
+<p>2025年12月16日于湘雅</p>
 
 
 </section>
@@ -782,14 +777,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="序">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">序</span>
+      <a href="./chapters/ch29_quarto_formats.html" class="pagination-link" aria-label="Quarto Formats">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto Formats</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapters/ch1_data_visualization.html" class="pagination-link" aria-label="数据可视化">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据可视化</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -797,4 +789,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SunPast/r4ds/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SunPast/r4ds/edit/main/afterword.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/afterword.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

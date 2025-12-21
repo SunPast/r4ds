@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; 逻辑向量 – R4DS Notes from DJ</title>
+<title>23&nbsp; arrow 包 – R4DS Notes from DJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/ch13_numbers.html" rel="next">
-<link href="../chapters/ch11_communication.html" rel="prev">
+<link href="../chapters/ch23_hierarchical_data.html" rel="next">
+<link href="../chapters/ch21_databases.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch12_logical_vectors.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">逻辑向量</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch22_arrow.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">arrow 包</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -249,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/ch12_logical_vectors.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/ch12_logical_vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
   </div>
 </li>
@@ -309,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/ch22_arrow.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ch22_arrow.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">arrow 包</span></span></a>
   </div>
 </li>
@@ -371,20 +371,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#引言" id="toc-引言" class="nav-link active" data-scroll-target="#引言"><span class="header-section-number">13.1</span> 引言</a></li>
-  <li><a href="#比较运算" id="toc-比较运算" class="nav-link" data-scroll-target="#比较运算"><span class="header-section-number">13.2</span> 比较运算</a></li>
-  <li><a href="#布尔代数" id="toc-布尔代数" class="nav-link" data-scroll-target="#布尔代数"><span class="header-section-number">13.3</span> 布尔代数</a></li>
-  <li><a href="#逻辑汇总" id="toc-逻辑汇总" class="nav-link" data-scroll-target="#逻辑汇总"><span class="header-section-number">13.4</span> 逻辑汇总</a></li>
-  <li><a href="#条件转换" id="toc-条件转换" class="nav-link" data-scroll-target="#条件转换"><span class="header-section-number">13.5</span> 条件转换</a></li>
+  <li><a href="#引言" id="toc-引言" class="nav-link active" data-scroll-target="#引言"><span class="header-section-number">23.1</span> 引言</a></li>
+  <li><a href="#获取数据" id="toc-获取数据" class="nav-link" data-scroll-target="#获取数据"><span class="header-section-number">23.2</span> 获取数据</a></li>
+  <li><a href="#打开数据集" id="toc-打开数据集" class="nav-link" data-scroll-target="#打开数据集"><span class="header-section-number">23.3</span> 打开数据集</a></li>
+  <li><a href="#parquet-格式" id="toc-parquet-格式" class="nav-link" data-scroll-target="#parquet-格式"><span class="header-section-number">23.4</span> Parquet 格式</a></li>
+  <li><a href="#使用-dplyr-操作-arrow-数据" id="toc-使用-dplyr-操作-arrow-数据" class="nav-link" data-scroll-target="#使用-dplyr-操作-arrow-数据"><span class="header-section-number">23.5</span> 使用 dplyr 操作 Arrow 数据</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch12_logical_vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch12_logical_vectors.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch22_arrow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch22_arrow.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">逻辑向量</span></h1>
+<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">arrow 包</span></h1>
 </div>
 
 
@@ -401,124 +401,178 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="引言" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="引言"><span class="header-section-number">13.1</span> 引言</h2>
-<p>逻辑向量中的元素只有三种值：<code>TRUE</code>、<code>FALSE</code>、<code>NA</code>。</p>
-<p>本章用到下列R包：</p>
+<section id="引言" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="引言"><span class="header-section-number">23.1</span> 引言</h2>
+<p>CSV文件的设计初衷是便于人类阅读，它结构简单且几乎能被所有工具解析。然而CSV的效率较低——将数据读入R需要大量处理工作。本章介绍一种更高效的替代方案：<strong>Parquet格式</strong>，这是一种基于开放标准、被大数据系统广泛使用的列式存储格式。</p>
+<p>Arrow是一个跨语言工具包，专为高效分析和传输大规模数据集而设计，同时也可以用于处理Parquet文件。</p>
+<p>本章须加载以下包：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13) <span class="co">#航班数据</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="比较运算" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="比较运算"><span class="header-section-number">13.2</span> 比较运算</h2>
-<p>创建逻辑向量的最常用方法是使用比较运算符：<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&gt;=</code>、<code>!=</code> 和 <code>==</code>。</p>
-<p>比如在<code>filter()</code>函数中的比较运算符用于筛选数据：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dep_time <span class="sc">&gt;</span> <span class="dv">600</span> <span class="sc">&amp;</span> dep_time <span class="sc">&lt;</span> <span class="dv">2000</span> <span class="sc">&amp;</span> <span class="fu">abs</span>(arr_delay) <span class="sc">&lt;</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>或者在<code>mutate()</code>函数中用于限定：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">daytime =</span> dep_time <span class="sc">&gt;</span> <span class="dv">600</span> <span class="sc">&amp;</span> dep_time <span class="sc">&lt;</span> <span class="dv">2000</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">approx_ontime =</span> <span class="fu">abs</span>(arr_delay) <span class="sc">&lt;</span> <span class="dv">20</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.keep =</span> <span class="st">"used"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>在进行比较运算时，注意与浮点数相关的运算不能用<code>==</code>，因为计算机表示小数时存在精度误差。错误示范：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">49</span> <span class="sc">*</span> <span class="dv">49</span>, <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">==</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE FALSE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>解决方法是使用 <code>dplyr::near()</code> 函数，可忽略极小的数值差异：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">near</span>(x, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>NA</code>表示”未知“，与其相关的比较运算结果都是<code>NA</code>：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span>        <span class="co">#&gt; NA</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="cn">NA</span>      <span class="co">#&gt; NA</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span>      <span class="co">#&gt; NA （不表示相等，而是“未知是否相等”）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>因此，不能用 <code>== NA</code> 检测缺失值。如下代码无效：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(dep_time <span class="sc">==</span> <span class="cn">NA</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 返回0行，因为 dep_time == NA 得到 NA，filter 会忽略</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>要检测缺失值要使用<code>is.na()</code>函数，比如：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">NA</span>, <span class="cn">FALSE</span>))   <span class="co">#&gt; FALSE TRUE FALSE</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>))          <span class="co">#&gt; FALSE TRUE FALSE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>is.na()</code>函数可用于辅助排序：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 将 NA 排在前面</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month <span class="sc">==</span> <span class="dv">1</span>, day <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">is.na</span>(dep_time)), dep_time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="获取数据" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="获取数据"><span class="header-section-number">23.2</span> 获取数据</h2>
+<p>本章教学数据集为：<a href="https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6">西雅图公共图书馆借阅记录</a>。该数据集包含41,389,465行记录，记录了2005年4月至2022年10月期间每月每本图书的借阅情况。</p>
+<p>以下代码将下载该数据的缓存副本（9GB CSV文件）。由于文件较大，建议使用<code>curl::multi_download()</code>，它能显示进度条并支持断点续传：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建数据目录</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"data"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用多线程下载（支持断点续传）</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>curl<span class="sc">::</span><span class="fu">multi_download</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://r4ds.s3.us-west-2.amazonaws.com/seattle-library-checkouts.csv"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/seattle-library-checkouts.csv"</span>, </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">resume =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>输出示例：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 1 × 10</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  success status_code resumefrom url                    destfile        error</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>lgl<span class="sc">&gt;</span>         <span class="er">&lt;</span>int<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                  <span class="er">&lt;</span>chr<span class="sc">&gt;</span>           <span class="er">&lt;</span>chr<span class="sc">&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="cn">TRUE</span>            <span class="dv">200</span>          <span class="dv">0</span> https<span class="sc">:</span><span class="er">//</span>r4ds.s3.us<span class="sc">-</span>we… data<span class="sc">/</span>seattle<span class="sc">-</span>l… <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ 4 more variables: type &lt;chr&gt;, modified &lt;dttm&gt;, time &lt;dbl&gt;, headers &lt;list&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="布尔代数" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="布尔代数"><span class="header-section-number">13.3</span> 布尔代数</h2>
-<p>使用布尔代数可将多个逻辑向量进行组合。</p>
+<section id="打开数据集" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="打开数据集"><span class="header-section-number">23.3</span> 打开数据集</h2>
+<p>此文件大小为 9GB，不算小了，故不建议一次性将其完全加载到内存中。即应该避免使用 <code>read_csv()</code>，而用 <code>arrow::open_dataset()</code>：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>seattle_csv <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">sources =</span> <span class="st">"data/seattle-library-checkouts.csv"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">schema</span>(<span class="at">ISBN =</span> <span class="fu">string</span>()),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"csv"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>open_dataset()</code> 会扫描几千行数据来推断数据集的结构。但由于前 80,000 行中的 <code>ISBN</code> 列都是空白的，所以此处手动指定该列的类型，以帮助 arrow 理解数据结构。</p>
+<p>一旦 <code>open_dataset()</code> 扫描完数据，它就会记录下结构信息并停止读取数据内容，后续只有在明确请求时才会继续读取。</p>
+<p>打印 <code>seattle_csv</code> 时，输出的是它的<strong>元数据</strong>（metadata）：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>seattle_csv</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; FileSystemDataset with 1 csv file</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; UsageClass: string</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CheckoutType: string</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MaterialType: string</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CheckoutYear: int64</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CheckoutMonth: int64</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Checkouts: int64</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Title: string</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ISBN: string</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Creator: string</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Subjects: string</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Publisher: string</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; PublicationYear: string</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>第一行告诉我们：<code>seattle_csv</code> 是一个由本地的 CSV 文件组成的数据集，只有在需要时才会加载到内存中。其余各行显示的是 arrow 推断出的各列数据类型。</p>
+<p>想要查看数据的实际内容，使用 <code>glimpse()</code> 函数，会显示行数、列数和部分值：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>seattle_csv <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; FileSystemDataset with 1 csv file</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 41,389,465 rows x 12 columns</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ UsageClass      &lt;string&gt; "Physical", "Physical", "Digital", "Physical", "Ph…</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ CheckoutType    &lt;string&gt; "Horizon", "Horizon", "OverDrive", "Horizon", "Hor…</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ MaterialType    &lt;string&gt; "BOOK", "BOOK", "EBOOK", "BOOK", "SOUNDDISC", "BOO…</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ CheckoutYear     &lt;int64&gt; 2016, 2016, 2016, 2016, 2016, 2016, 2016, 2016, 20…</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ CheckoutMonth    &lt;int64&gt; 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,…</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Checkouts        &lt;int64&gt; 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 2, 3, 2, 1, 3, 2,…</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Title           &lt;string&gt; "Super rich : a guide to having it all / Russell S…</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ ISBN            &lt;string&gt; "", "", "", "", "", "", "", "", "", "", "", "", ""…</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Creator         &lt;string&gt; "Simmons, Russell", "Barclay, James, 1965-", "Tim …</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Subjects        &lt;string&gt; "Self realization, Conduct of life, Attitude Psych…</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Publisher       &lt;string&gt; "Gotham Books,", "Pyr,", "Random House, Inc.", "Di…</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ PublicationYear &lt;string&gt; "c2011.", "2010.", "2015", "2005.", "c2004.", "c20…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>可以使用 <code>dplyr</code> 的语法对数据进行操作，然后用 <code>collect()</code> 函数触发计算并返回结果。例如，下面这段代码统计了每年的总借阅次数：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>seattle_csv <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CheckoutYear) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Checkouts =</span> <span class="fu">sum</span>(Checkouts)) <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(CheckoutYear) <span class="sc">|&gt;</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 18 × 2</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   CheckoutYear Checkouts</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;int&gt;     &lt;int&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         2005   3798685</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         2006   6599318</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         2007   7126627</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         2008   8438486</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         2009   9135167</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6         2010   8608966</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 12 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>多亏了 <code>arrow</code>，无论数据多大上述代码都能运行。但目前它执行起来仍然较慢（本书作者 Hadley 的电脑上大概花了 10 秒）。考虑到数据量已经很大，这个速度并不算差——不过我们仍然可以通过<strong>切换到更高效的数据格式</strong>来进一步加速。</p>
+</section>
+<section id="parquet-格式" class="level2" data-number="23.4">
+<h2 data-number="23.4" class="anchored" data-anchor-id="parquet-格式"><span class="header-section-number">23.4</span> Parquet 格式</h2>
+<p>为了让上述数据更易于处理，我们需要将其转换为 Parquet 文件格式并进行分块存储。</p>
+<hr>
+<p>首先详细介绍一下 Parquet。与 CSV 类似，Parquet 也适用于矩形数据，但它不可以用文本编辑器查看，是专为大数据需求设计的二进制格式。这意味着：</p>
 <ul>
-<li><p><code>&amp;</code>：与（and）</p></li>
-<li><p><code>|</code>：或（or）</p></li>
-<li><p><code>!</code>：非（not）</p></li>
-<li><p><code>xor()</code>：异或（exclusive or）</p></li>
+<li><strong>文件更小</strong>：Parquet 采用高效编码和压缩技术，减少了磁盘到内存的数据传输量，从而提升速度。</li>
+<li><strong>类型系统完善</strong>：CSV 需要猜测列类型（如”08-10-2022”应解析为字符串还是日期），而Parquet直接存储数据类型信息。</li>
+<li><strong>列式存储</strong>：数据按列组织（类似 R 数据框），相比按行存储的 CSV 能显著提升分析性能。</li>
+<li><strong>分块存储</strong>：支持并行处理不同数据块，某些情况下可以跳过无关数据块。</li>
 </ul>
-<p><img src="https://r4ds.hadley.nz/diagrams/transform.png" class="img-fluid"></p>
-<p>另外还有<code>&amp;&amp;</code>和<code>||</code>，但它们是短路逻辑操作符，只返回一个布尔值，故适用于编程控制流（如 if 语句），而非数据分析。</p>
-<p>在布尔运算中，与<code>NA</code>相关的运算颇为抽象，如下：</p>
-<blockquote class="blockquote">
-<p><code>NA | TRUE</code> = <code>TRUE</code>：因为 <code>NA</code> 可能是 <code>TRUE</code>，总有一项为真；</p>
-<p><code>NA | FALSE</code> = <code>NA</code>：因为结果取决于 <code>NA</code> 的真假，无法确定；</p>
-<p><code>NA &amp; TRUE</code> = <code>NA</code>：是否为真依赖 <code>NA</code> 的真假，无法确定；</p>
-<p><code>NA &amp; FALSE</code> = <code>FALSE</code>：一项为假，整体为假。</p>
-</blockquote>
-<p>书写布尔代数表达式时注意不要用日常说话的语序，比如若要筛选11月或12月的航班，错误示例：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>正确写法：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> month <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>或更推荐：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">filter</span>(month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">12</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>x %in% y</code> 判断 <code>x</code> 中的每个元素是否在向量 <code>y</code> 中，返回逻辑向量。等价于多个 <code>==</code> 和 <code>|</code> 联合使用，但语法更简洁，逻辑更清晰。比如：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">12</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">11</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TRUE FALSE ... TRUE ... TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>同时注意与<code>NA</code>相关的运算，比如：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>) <span class="sc">%in%</span> <span class="cn">NA</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; FALSE FALSE TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>唯一缺点是<strong>不可人工阅读</strong>，用 <code>readr::read_file()</code> 查看 Parquet 文件只会显示乱码。</p>
+<hr>
+<p>接下来看看分区的概念。随着数据集增大，单文件存储会变得难以维护。对数据进行分区可以让我们分析时只访问部分文件，从而大幅提升性能。</p>
+<hr>
+<p>基础理论阐述完毕，下面让我们来重构图书馆数据。我们将按借阅年份（CheckoutYear）分区，这样既能支持按年份筛选，又能生成大小适中的 18 个数据块。</p>
+<p>通过 <code>group_by()</code> 函数定义分区，再用 <code>write_dataset()</code> 保存为 Parquet 格式：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pq_path <span class="ot">&lt;-</span> <span class="st">"data/seattle-library-checkouts"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>seattle_csv <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CheckoutYear) <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_dataset</span>(<span class="at">path =</span> pq_path, <span class="at">format =</span> <span class="st">"parquet"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>转换耗时约 1 分钟，但后续操作将因此获得极大加速。</p>
+<p>查看生成的文件结构：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">files =</span> <span class="fu">list.files</span>(pq_path, <span class="at">recursive =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">size_MB =</span> <span class="fu">file.size</span>(<span class="fu">file.path</span>(pq_path, files)) <span class="sc">/</span> <span class="dv">1024</span><span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 18 × 2</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   files                            size_MB</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;                              &lt;dbl&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 CheckoutYear=2005/part-0.parquet    109.</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 CheckoutYear=2006/part-0.parquet    164.</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 CheckoutYear=2007/part-0.parquet    178.</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 CheckoutYear=2008/part-0.parquet    195.</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 CheckoutYear=2009/part-0.parquet    214.</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 CheckoutYear=2010/part-0.parquet    222.</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 12 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>原始 9GB CSV 文件被转换为 18 个 Parquet 文件，且命名格式统一。每个文件 100-300MB，总大小约 4GB（仅为原 CSV 的一半多），体现了 Parquet 的高效存储特性。</p>
 </section>
-<section id="逻辑汇总" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="逻辑汇总"><span class="header-section-number">13.4</span> 逻辑汇总</h2>
-<ol type="1">
-<li><p>逻辑汇总函数</p>
-<p><code>any(x)</code> 相当于逻辑“或”，只要 <code>x</code> 中存在任意一个 <code>TRUE</code> 就返回 <code>TRUE</code>。 <code>all(x)</code> 相当于逻辑“与”，只有当 <code>x</code> 中所有值都是 <code>TRUE</code> 时才返回 <code>TRUE</code>。</p></li>
-<li><p>数值汇总函数</p>
-<p>逻辑向量在数值情境下会自动转换：<code>TRUE</code> 变成 1，<code>FALSE</code> 变成 0。从而可用<code>sum()</code> 统计 <code>TRUE</code> 的个数，<code>mean()</code> 计算 <code>TRUE</code> 的比例</p></li>
-<li><p>逻辑子集筛选</p>
-<p>逻辑向量可以用来对单个变量进行子集筛选，主要利用中括号<code>[]</code>。形如：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>arr_delay[arr_delay <span class="sc">&lt;</span> <span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
-</section>
-<section id="条件转换" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="条件转换"><span class="header-section-number">13.5</span> 条件转换</h2>
-<p>若想在某个条件为 <code>TRUE</code> 时使用一个值，为 <code>FALSE</code> 时使用另一个值时，可以使用 <code>dplyr::if_else()</code>函数。</p>
-<p>主要用 <code>if_else()</code> 前三个参数：</p>
-<ol type="1">
-<li><p><code>condition</code> ：逻辑向量；</p></li>
-<li><p><code>&lt;true&gt;</code> ：条件为 <code>TRUE</code> 时输出的值或向量；</p></li>
-<li><p><code>&lt;false&gt;</code> ：条件为 <code>FALSE</code> 时输出的值或向量。</p></li>
-</ol>
-<p>例如：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">2</span>, <span class="cn">NA</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"非负"</span>, <span class="st">"负"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"负"</span>   <span class="st">"负"</span>   <span class="st">"负"</span>   <span class="st">"非负"</span> <span class="st">"非负"</span> <span class="cn">NA</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>可选的第四个参数称为为 <code>missing</code>，可用自定义值替换<code>NA</code> 值：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"非负"</span>, <span class="st">"负"</span>, <span class="st">"secret"</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"负"</span>    <span class="st">"负"</span>    <span class="st">"负"</span>    <span class="st">"非负"</span>  <span class="st">"非负"</span>  <span class="st">"secret"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>还有一种条理更清晰的函数<code>case_when()</code>，使用方式为：<code>条件 ~ 输出</code>，类似分段函数。</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">case_when</span>(</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     x <span class="sc">==</span> <span class="dv">0</span>   <span class="sc">~</span> <span class="st">"0"</span>,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     x <span class="sc">&lt;</span> <span class="dv">0</span>    <span class="sc">~</span> <span class="st">"-"</span>, </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     x <span class="sc">&gt;</span> <span class="dv">0</span>    <span class="sc">~</span> <span class="st">"+"</span>,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">is.na</span>(x) <span class="sc">~</span> <span class="st">"secret"</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> )</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"-"</span>      <span class="st">"-"</span>      <span class="st">"0"</span>      <span class="st">"+"</span>      <span class="st">"+"</span>     <span class="st">"secret"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>若想提供默认值，可使用 <code>.default = "&lt;默认值&gt;"</code></p>
-<p>如果有多个条件同时为 <code>TRUE</code>，只会对应第一个匹配的。</p>
-<p>需要注意，<code>TRUE</code>和<code>FALSE</code>对应输出的值必须兼容，比如字符串和数值不兼容。以下为常见的兼容类型：</p>
-<ul>
-<li>数值与逻辑向量兼容</li>
-<li>字符串与因子类型兼容</li>
-<li><code>NA</code> 与所有类型兼容</li>
-</ul>
+<section id="使用-dplyr-操作-arrow-数据" class="level2" data-number="23.5">
+<h2 data-number="23.5" class="anchored" data-anchor-id="使用-dplyr-操作-arrow-数据"><span class="header-section-number">23.5</span> 使用 dplyr 操作 Arrow 数据</h2>
+<p>我们已经创建了 Parquet 文件，现在需要重新读取它们。再次使用 <code>open_dataset()</code>，传入目录路径：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>seattle_pq <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(pq_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>接下来我们就可以构建 dplyr 分析流程。例如，统计近五年每月图书借阅量：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> seattle_pq <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CheckoutYear <span class="sc">&gt;=</span> <span class="dv">2018</span>, MaterialType <span class="sc">==</span> <span class="st">"BOOK"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CheckoutYear, CheckoutMonth) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">TotalCheckouts =</span> <span class="fu">sum</span>(Checkouts)) <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(CheckoutYear, CheckoutMonth)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>这与上一章 dbplyr 的工作方式类似：编写的 dplyr 代码会被自动转换为 Apache Arrow C++ 库能理解的查询，调用 <code>collect()</code> 时才会执行。打印查询对象可预览执行计划：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>query</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; FileSystemDataset (query)</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CheckoutYear: int32</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CheckoutMonth: int64</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TotalCheckouts: int64</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * Grouped by CheckoutYear</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * Sorted by CheckoutYear [asc], CheckoutMonth [asc]</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; See $.data for the source Arrow object</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>随后调用 <code>collect()</code> 即可获取结果：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>query <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 58 × 3</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   CheckoutYear [5]</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   CheckoutYear CheckoutMonth TotalCheckouts</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;int&gt;         &lt;int&gt;          &lt;int&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         2018             1         355101</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         2018             2         309813</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         2018             3         344487</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         2018             4         330988</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         2018             5         318049</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6         2018             6         341825</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 52 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p>另外，通过 <code>arrow::to_duckdb()</code> 函数可转为 DuckDB 数据库：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>seattle_pq <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">to_duckdb</span>() <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CheckoutYear <span class="sc">&gt;=</span> <span class="dv">2018</span>, MaterialType <span class="sc">==</span> <span class="st">"BOOK"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CheckoutYear) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">TotalCheckouts =</span> <span class="fu">sum</span>(Checkouts)) <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(CheckoutYear)) <span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>此过程无需复制内存，实现了计算环境间的无缝切换。</p>
 
 
 </section>
@@ -926,13 +980,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/ch11_communication.html" class="pagination-link" aria-label="解释性图表">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">解释性图表</span></span>
+      <a href="../chapters/ch21_databases.html" class="pagination-link" aria-label="数据库">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">数据库</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/ch13_numbers.html" class="pagination-link" aria-label="数值处理">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">数值处理</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/ch23_hierarchical_data.html" class="pagination-link" aria-label="层次化数据">
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">层次化数据</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -941,4 +995,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch12_logical_vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch12_logical_vectors.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch22_arrow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch22_arrow.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

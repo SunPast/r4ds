@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; 数据可视化 – R4DS Notes from DJ</title>
+<title>2&nbsp; 数据可视化 – R4DS Notes from DJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch1_data_visualization.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据可视化</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch1_data_visualization.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据可视化</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,97 +178,187 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">导入</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch1_data_visualization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch2_workflow_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">工作流基础</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">工作流基础</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch3_data_transformation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch4_workflow_code_style.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">工作流之代码格式</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">工作流之代码格式</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch5_data_tidying.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据整洁化</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数据整洁化</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch6_workflow_scripts_projects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">脚本与项目</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">脚本与项目</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch7_data_import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">数据导入</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">数据导入</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch8_workflow_getting_help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">工作流：获取帮助</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">工作流：获取帮助</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch9_layers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">图层</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">图层</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch10_exploratory_data_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">探索性数据分析</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">探索性数据分析</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch11_communication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">解释性图表</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">解释性图表</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch12_logical_vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch13_numbers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">数值处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">数值处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch14_strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">字符串处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">字符串处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch15_regular_expressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">正则表达式</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">正则表达式</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch16_factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">因子</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch17_dates_and_times.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">日期与时间</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch18_missing_values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">缺失值</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch19_joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">连接</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch20_spreadsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">电子表格</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch21_databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">数据库</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch22_arrow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">arrow 包</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch23_hierarchical_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">层次化数据</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch24_web_scraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">网页抓取</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch25_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch26_iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">迭代</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch27_field_guide_base_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Base R 实战指南</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch28_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch29_quarto_formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto Formats</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../afterword.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">后记</span></span></a>
   </div>
 </li>
     </ul>
@@ -281,12 +371,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#引言" id="toc-引言" class="nav-link active" data-scroll-target="#引言"><span class="header-section-number">1.1</span> 引言</a></li>
-  <li><a href="#绘制企鹅数据图" id="toc-绘制企鹅数据图" class="nav-link" data-scroll-target="#绘制企鹅数据图"><span class="header-section-number">1.2</span> 绘制企鹅数据图</a></li>
-  <li><a href="#调用-ggplot2" id="toc-调用-ggplot2" class="nav-link" data-scroll-target="#调用-ggplot2"><span class="header-section-number">1.3</span> 调用 ggplot2</a></li>
-  <li><a href="#分布可视化" id="toc-分布可视化" class="nav-link" data-scroll-target="#分布可视化"><span class="header-section-number">1.4</span> 分布可视化</a></li>
-  <li><a href="#关系可视化" id="toc-关系可视化" class="nav-link" data-scroll-target="#关系可视化"><span class="header-section-number">1.5</span> 关系可视化</a></li>
-  <li><a href="#保存绘图" id="toc-保存绘图" class="nav-link" data-scroll-target="#保存绘图"><span class="header-section-number">1.6</span> 保存绘图</a></li>
+  <li><a href="#引言" id="toc-引言" class="nav-link active" data-scroll-target="#引言"><span class="header-section-number">2.1</span> 引言</a></li>
+  <li><a href="#绘制企鹅数据图" id="toc-绘制企鹅数据图" class="nav-link" data-scroll-target="#绘制企鹅数据图"><span class="header-section-number">2.2</span> 绘制企鹅数据图</a></li>
+  <li><a href="#调用-ggplot2" id="toc-调用-ggplot2" class="nav-link" data-scroll-target="#调用-ggplot2"><span class="header-section-number">2.3</span> 调用 ggplot2</a></li>
+  <li><a href="#分布可视化" id="toc-分布可视化" class="nav-link" data-scroll-target="#分布可视化"><span class="header-section-number">2.4</span> 分布可视化</a></li>
+  <li><a href="#关系可视化" id="toc-关系可视化" class="nav-link" data-scroll-target="#关系可视化"><span class="header-section-number">2.5</span> 关系可视化</a></li>
+  <li><a href="#保存绘图" id="toc-保存绘图" class="nav-link" data-scroll-target="#保存绘图"><span class="header-section-number">2.6</span> 保存绘图</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch1_data_visualization.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch1_data_visualization.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -295,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据可视化</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据可视化</span></h1>
 </div>
 
 
@@ -312,15 +402,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="引言" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="引言"><span class="header-section-number">1.1</span> 引言</h2>
+<section id="引言" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="引言"><span class="header-section-number">2.1</span> 引言</h2>
 <p>ggplot2是所有R可视化工具中最优雅的之一。 本章需载入下列R包：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins) <span class="co"># 包含示例数据</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes) <span class="co"># 提供色盲调色板</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="绘制企鹅数据图" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="绘制企鹅数据图"><span class="header-section-number">1.2</span> 绘制企鹅数据图</h2>
+<section id="绘制企鹅数据图" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="绘制企鹅数据图"><span class="header-section-number">2.2</span> 绘制企鹅数据图</h2>
 <p>本书开篇甩出一系列问题：企鹅的脚蹼长度和体重之间的关系是怎样的？是线性？非线性？这种关系是否因企鹅的种类而异？与地理位置有关吗？针对这些问题，我们将进行可视化操作以回答。</p>
 <p>首先了解一些术语：</p>
 <ul>
@@ -429,8 +519,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">scale_color_colorblind</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid"></p>
 </section>
-<section id="调用-ggplot2" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="调用-ggplot2"><span class="header-section-number">1.3</span> 调用 ggplot2</h2>
+<section id="调用-ggplot2" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="调用-ggplot2"><span class="header-section-number">2.3</span> 调用 ggplot2</h2>
 <p><code>ggplot</code>函数的核心用法已阐述完毕，下面将以更简洁的形式呈现，省略参数名称（data和mapping）。所以上一节中的某一命令可简化为：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
@@ -442,8 +532,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="分布可视化" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="分布可视化"><span class="header-section-number">1.4</span> 分布可视化</h2>
+<section id="分布可视化" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="分布可视化"><span class="header-section-number">2.4</span> 分布可视化</h2>
 <p>如果要将企鹅的种类等<strong>类别变量(categorical variable)</strong>可视化，可使用条形图<code>geom_bar()</code>如下：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -465,11 +555,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (`stat_density()`).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid"></p>
 </section>
-<section id="关系可视化" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="关系可视化"><span class="header-section-number">1.5</span> 关系可视化</h2>
+<section id="关系可视化" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="关系可视化"><span class="header-section-number">2.5</span> 关系可视化</h2>
 <p>为了可视化变量间的关系，我们需要将至少两个变量映射到美学。下面将介绍用于可视化两个或多个变量之间关系的常用绘图。</p>
-<section id="数值变量和类别变量" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="数值变量和类别变量"><span class="header-section-number">1.5.1</span> 数值变量和类别变量</h3>
+<section id="数值变量和类别变量" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="数值变量和类别变量"><span class="header-section-number">2.5.1</span> 数值变量和类别变量</h3>
 <p>要对数值变量和类别变量进行关系可视化，可使用箱线图<code>geom_boxplot()</code>。</p>
 <p>箱线图由以下部分组成：</p>
 <ul>
@@ -491,8 +581,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid"></p>
 </section>
-<section id="两个类别变量" class="level3" data-number="1.5.2">
-<h3 data-number="1.5.2" class="anchored" data-anchor-id="两个类别变量"><span class="header-section-number">1.5.2</span> 两个类别变量</h3>
+<section id="两个类别变量" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="两个类别变量"><span class="header-section-number">2.5.2</span> 两个类别变量</h3>
 <p>使用堆叠条形图来可视化两个类别变量的关系。例如要处理物种和岛名的关系：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -502,15 +592,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid"></p>
 </section>
-<section id="两个数值变量" class="level3" data-number="1.5.3">
-<h3 data-number="1.5.3" class="anchored" data-anchor-id="两个数值变量"><span class="header-section-number">1.5.3</span> 两个数值变量</h3>
+<section id="两个数值变量" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="两个数值变量"><span class="header-section-number">2.5.3</span> 两个数值变量</h3>
 <p>书中指出，散点图是可视化两个数值变量之间关系的最常用图。</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid"></p>
 </section>
-<section id="三个或更多变量" class="level3" data-number="1.5.4">
-<h3 data-number="1.5.4" class="anchored" data-anchor-id="三个或更多变量"><span class="header-section-number">1.5.4</span> 三个或更多变量</h3>
+<section id="三个或更多变量" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="三个或更多变量"><span class="header-section-number">2.5.4</span> 三个或更多变量</h3>
 <p>针对三个变量，我们可以加入更多美学要素以表示变量，比如用点的颜色表示物种，用点的形状表示岛屿：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, <span class="at">shape =</span> island))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -523,8 +613,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid"></p>
 </section>
 </section>
-<section id="保存绘图" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="保存绘图"><span class="header-section-number">1.6</span> 保存绘图</h2>
+<section id="保存绘图" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="保存绘图"><span class="header-section-number">2.6</span> 保存绘图</h2>
 <p>使用<code>ggsave()</code>函数保存最近一次所画图像，参数<code>file</code>可设置图像名称及路径。比如：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
@@ -936,13 +1026,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../intro.html" class="pagination-link" aria-label="导入">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">导入</span>
+      <a href="../intro.html" class="pagination-link" aria-label="引言">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/ch2_workflow_basics.html" class="pagination-link" aria-label="工作流基础">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">工作流基础</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">工作流基础</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

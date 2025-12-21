@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; 探索性数据分析 – R4DS Notes from DJ</title>
+<title>11&nbsp; 探索性数据分析 – R4DS Notes from DJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch10_exploratory_data_analysis.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">探索性数据分析</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/ch10_exploratory_data_analysis.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">探索性数据分析</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,97 +178,187 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">导入</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">引言</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch1_data_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch2_workflow_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">工作流基础</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">工作流基础</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch3_data_transformation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch4_workflow_code_style.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">工作流之代码格式</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">工作流之代码格式</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch5_data_tidying.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据整洁化</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数据整洁化</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch6_workflow_scripts_projects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">脚本与项目</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">脚本与项目</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch7_data_import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">数据导入</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">数据导入</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch8_workflow_getting_help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">工作流：获取帮助</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">工作流：获取帮助</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch9_layers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">图层</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">图层</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch10_exploratory_data_analysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">探索性数据分析</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">探索性数据分析</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch11_communication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">解释性图表</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">解释性图表</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch12_logical_vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch13_numbers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">数值处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">数值处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch14_strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">字符串处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">字符串处理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ch15_regular_expressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">正则表达式</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">正则表达式</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch16_factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">因子</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch17_dates_and_times.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">日期与时间</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch18_missing_values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">缺失值</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch19_joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">连接</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch20_spreadsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">电子表格</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch21_databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">数据库</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch22_arrow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">arrow 包</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch23_hierarchical_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">层次化数据</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch24_web_scraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">网页抓取</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch25_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch26_iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">迭代</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch27_field_guide_base_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Base R 实战指南</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch28_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch29_quarto_formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto Formats</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../afterword.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">后记</span></span></a>
   </div>
 </li>
     </ul>
@@ -281,12 +371,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#简介" id="toc-简介" class="nav-link active" data-scroll-target="#简介"><span class="header-section-number">10.1</span> 简介</a></li>
-  <li><a href="#问题的艺术" id="toc-问题的艺术" class="nav-link" data-scroll-target="#问题的艺术"><span class="header-section-number">10.2</span> 问题的艺术</a></li>
-  <li><a href="#变异" id="toc-变异" class="nav-link" data-scroll-target="#变异"><span class="header-section-number">10.3</span> 变异</a></li>
-  <li><a href="#异常值处理" id="toc-异常值处理" class="nav-link" data-scroll-target="#异常值处理"><span class="header-section-number">10.4</span> 异常值处理</a></li>
-  <li><a href="#共变" id="toc-共变" class="nav-link" data-scroll-target="#共变"><span class="header-section-number">10.5</span> 共变</a></li>
-  <li><a href="#模式与模型" id="toc-模式与模型" class="nav-link" data-scroll-target="#模式与模型"><span class="header-section-number">10.6</span> 模式与模型</a></li>
+  <li><a href="#简介" id="toc-简介" class="nav-link active" data-scroll-target="#简介"><span class="header-section-number">11.1</span> 简介</a></li>
+  <li><a href="#问题的艺术" id="toc-问题的艺术" class="nav-link" data-scroll-target="#问题的艺术"><span class="header-section-number">11.2</span> 问题的艺术</a></li>
+  <li><a href="#变异" id="toc-变异" class="nav-link" data-scroll-target="#变异"><span class="header-section-number">11.3</span> 变异</a></li>
+  <li><a href="#异常值处理" id="toc-异常值处理" class="nav-link" data-scroll-target="#异常值处理"><span class="header-section-number">11.4</span> 异常值处理</a></li>
+  <li><a href="#共变" id="toc-共变" class="nav-link" data-scroll-target="#共变"><span class="header-section-number">11.5</span> 共变</a></li>
+  <li><a href="#模式与模型" id="toc-模式与模型" class="nav-link" data-scroll-target="#模式与模型"><span class="header-section-number">11.6</span> 模式与模型</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SunPast/r4ds/edit/main/chapters/ch10_exploratory_data_analysis.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SunPast/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/SunPast/r4ds/blob/main/chapters/ch10_exploratory_data_analysis.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -295,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">探索性数据分析</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">探索性数据分析</span></h1>
 </div>
 
 
@@ -312,8 +402,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="简介" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">10.1</span> 简介</h2>
+<section id="简介" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">11.1</span> 简介</h2>
 <p>本章将介绍如何通过<strong>可视化</strong>和<strong>数据转换</strong>系统化地探索数据，这一过程在统计学中称为<strong>探索性数据分析</strong>（Exploratory Data Analysis, EDA）。EDA是一个迭代循环的过程，包含以下步骤：</p>
 <ol type="1">
 <li><strong>提出问题</strong>：针对数据生成初步问题；</li>
@@ -322,8 +412,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>EDA是数据分析的核心环节，能帮助评估数据质量。例如，<strong>数据清洗</strong>本质上就是EDA的应用：通过质疑数据是否符合预期，利用可视化、转换和建模工具识别并解决问题。</p>
 </section>
-<section id="问题的艺术" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="问题的艺术"><span class="header-section-number">10.2</span> 问题的艺术</h2>
+<section id="问题的艺术" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="问题的艺术"><span class="header-section-number">11.2</span> 问题的艺术</h2>
 <p>在EDA过程中，核心目标是<strong>理解数据</strong>，而<strong>提问</strong>是引导探索的最佳工具。每个问题都会聚焦到数据的特定方面，进而选择恰当的可视化、模型或数据转换方法。</p>
 <p>EDA本质上是创造性过程，提出高质量问题的关键在于追求问题数量。虽然由于尚未了解数据中隐藏信息，初期问题可能较肤浅，但每个新问题都会揭示新视角。通过连续追问可逐步深入数据。</p>
 <p>提问没有固定模板，但以下两类问题一般最有研究价值：</p>
@@ -336,8 +426,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>“产品销量与广告支出是否同步变化？季节性影响是否显著？”</em></p></li>
 </ol>
 </section>
-<section id="变异" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="变异"><span class="header-section-number">10.3</span> 变异</h2>
+<section id="变异" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="变异"><span class="header-section-number">11.3</span> 变异</h2>
 <p>变异（Variation）指变量在不同测量中取值的波动现象。现实中所有连续变量都会存在变异，结果也会因微小误差而不同。理解变异的关键在于<strong>可视化的值分布</strong>。</p>
 <p>以钻石重量（carat）为例，通过直方图观察其分布：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 全数据集直方图（右偏分布）</span></span>
@@ -389,8 +479,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>通过这种分析，我们不仅发现了数据质量问题（如零值），还可能识别出特殊钻石类别（如超大但低价的异常记录），为进一步处理提供方向。</p>
 </section>
-<section id="异常值处理" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="异常值处理"><span class="header-section-number">10.4</span> 异常值处理</h2>
+<section id="异常值处理" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="异常值处理"><span class="header-section-number">11.4</span> 异常值处理</h2>
 <p>数据中的异常值需要继续处理，有两种方式。</p>
 <ol type="1">
 <li>直接删除整行</li>
@@ -414,8 +504,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>而有时缺失值本身也具有意义。例如航班数据中，<code>dep_time</code>为NA时，表示航班取消。</p>
 </section>
-<section id="共变" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="共变"><span class="header-section-number">10.5</span> 共变</h2>
+<section id="共变" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="共变"><span class="header-section-number">11.5</span> 共变</h2>
 <p>共变（Covariation）描述变量间的协同变化关系，是探索数据多维模式的核心工具。本节探索钻石价格与切工质量的关系，通过两种可视化方法揭示反常现象及其原因。</p>
 <ol type="1">
 <li>频率多边形（Density标准化）</li>
@@ -521,8 +611,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>varwidth = TRUE</code>：箱宽反映样本量。</p>
 </blockquote>
 </section>
-<section id="模式与模型" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="模式与模型"><span class="header-section-number">10.6</span> 模式与模型</h2>
+<section id="模式与模型" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="模式与模型"><span class="header-section-number">11.6</span> 模式与模型</h2>
 <p>当数据中出现系统性关系时，它会表现为某种模式(pattern)。发现模式后，需追问以下问题：</p>
 <ol type="1">
 <li>该模式是否因巧合产生？</li>
@@ -965,12 +1055,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/ch9_layers.html" class="pagination-link" aria-label="图层">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">图层</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">图层</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/ch11_communication.html" class="pagination-link" aria-label="解释性图表">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">解释性图表</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">解释性图表</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
