@@ -472,4 +472,6 @@ flights |>
 
 -   `.by` 简化：
 
-\`\`\` r flights \|\> summarize(delay = mean(dep_delay, na.rm = TRUE), .by = month)
+    ``` r
+    flights |> summarize(delay = mean(dep_delay, na.rm = TRUE), .by = month) 
+    ```
