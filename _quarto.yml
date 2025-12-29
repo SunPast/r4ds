@@ -14,7 +14,7 @@ book:
     giscus:
       repo: "WangLabCSU/r4ds"
       repo-id: "R_kgDOQuKn1Q"
-      category: "Q&A"
+      category: "Announcements"
       category-id: "DIC_kwDOQuKn1c4C0VwN"
       mapping: title
       reactions-enabled: true
