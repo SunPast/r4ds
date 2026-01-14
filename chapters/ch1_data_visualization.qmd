@@ -138,7 +138,7 @@ ggplot(
   geom_smooth(method = "lm")
 ```
 
-![](https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-13-1.png)
+![](https://books-zh-cn.github.io/r4ds-zh-cn/data-visualize_files/figure-html/unnamed-chunk-12-1.png)
 
 现在得到的图像美观多了，但仍有进步空间。考虑到色盲人士，只用颜色区分物种貌似不太妥当，可以将点改为多种形状来区分。使用`shape=<变量>`参数即可实现。同样也会附上图例。
 
@@ -151,7 +151,7 @@ ggplot(
   geom_smooth(method = "lm")
 ```
 
-![](https://books-zh-cn.github.io/r4ds-zh-cn/data-visualize_files/figure-html/unnamed-chunk-12-1.png)
+![](https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-13-1.png)
 
 最后一步，我们可以添加一个用于解释图像的函数`labs()`，从而为图添加标题和副标题，并以与美学映射匹配的方式添加坐标轴文字，并定义图例的标签等等。此外，还可以使用 `ggthemes` 包中的函数改进调色板，进一步照顾色盲人士。
 
