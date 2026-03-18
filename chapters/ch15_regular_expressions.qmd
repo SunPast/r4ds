@@ -185,7 +185,7 @@ str_replace_all(x, "[aeiou]", "-")
 删除匹配的内容可用 `str_remove()` / `str_remove_all()`：
 
 ``` r
-tr_remove_all(x, "[aeiou]")
+str_remove_all(x, "[aeiou]")
 #> [1] "ppl" "pr"  "bnn"
 ```
 
