@@ -25,6 +25,7 @@ book:
   
   chapters:
     - index.qmd
+    - thanks.qmd
     - intro.qmd
     - chapters/ch1_data_visualization.qmd
     - chapters/ch2_workflow_basics.qmd

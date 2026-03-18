@@ -1,7 +1,5 @@
 # 引言 {.unnumbered}
 
-
-
 ![](https://r4ds.hadley.nz/diagrams/data-science/base.png)
 
 上图展示了完成一个数据科学项目的基本模型，也是全书的核心思想。
