@@ -9,3 +9,4 @@ _book/
 _site/
 *.html
 site_libs/
+**/*.quarto_ipynb

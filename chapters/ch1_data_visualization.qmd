@@ -19,10 +19,10 @@ library(ggthemes) # 提供色盲调色板
 
 首先了解一些术语：
 
--   **变量(variable**)是可以测量的数量、质量等属性。
--   **值(value**)是测量变量时变量的状态。变量的值可能会因测量而异。
--   **观测值(observation**)是在相近条件下进行的一组测量 （通常就是在同一时间对同一对象的所有值）。一个观测值将包含多个值，每个值都与不同的变量相关联。
--   **表格数据(tabular data**)是一组值，每个值都与一个变量和一个观测值相关联。
+- **变量(variable**)是可以测量的数量、质量等属性。
+- **值(value**)是测量变量时变量的状态。变量的值可能会因测量而异。
+- **观测值(observation**)是在相近条件下进行的一组测量 （通常就是在同一时间对同一对象的所有值）。一个观测值将包含多个值，每个值都与不同的变量相关联。
+- **表格数据(tabular data**)是一组值，每个值都与一个变量和一个观测值相关联。
 
 接下来输入`palmerpenguins::penguins`以打开示例数据的数据框。注意到并未显示出所有变量。
 
@@ -156,19 +156,21 @@ ggplot(
 最后一步，我们可以添加一个用于解释图像的函数`labs()`，从而为图添加标题和副标题，并以与美学映射匹配的方式添加坐标轴文字，并定义图例的标签等等。此外，还可以使用 `ggthemes` 包中的函数改进调色板，进一步照顾色盲人士。
 
 ``` r
-> ggplot(
-+     data = penguins,
-+     mapping = aes(x = flipper_length_mm, y = body_mass_g)
-+ ) +
-+     geom_point(aes(color = species, shape = species)) +
-+     geom_smooth(method = "lm") +
-+     labs(
-+         title = "Body mass and flipper length",
-+         subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-+         x = "Flipper length (mm)", y = "Body mass (g)",
-+         color = "Species", shape = "Species"
-+     ) +
-+     scale_color_colorblind()
+library(ggthemes)
+
+ggplot(
+    data = penguins,
+    mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+    geom_point(aes(color = species, shape = species)) +
+    geom_smooth(method = "lm") +
+    labs(
+        title = "Body mass and flipper length",
+        subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+        x = "Flipper length (mm)", y = "Body mass (g)",
+        color = "Species", shape = "Species"
+    ) +
+    scale_color_colorblind()
 ```
 
 ![](https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-14-1.png)
@@ -247,9 +249,9 @@ ggplot(penguins, aes(x = body_mass_g)) +
 
 箱线图由以下部分组成：
 
--   一个表示数据中间半部分范围的框，该距离称为四分位距 （IQR），从分布的第 25 个百分位数延伸到第 75 个百分位数。框中间有一条横线，显示分布的中位数，即第 50 个百分位数。这三条线体现数据的分散程度，以及分布是关于中位数对称还是偏向于某一侧。
--   超过框的任一边缘 IQR 1.5 倍的观测值的数据会以点的形式单独标注，称为outliers。
--   从框的两端延伸并到达最远的**非异常值点**的线称作须线(whisker)。
+- 一个表示数据中间半部分范围的框，该距离称为四分位距 （IQR），从分布的第 25 个百分位数延伸到第 75 个百分位数。框中间有一条横线，显示分布的中位数，即第 50 个百分位数。这三条线体现数据的分散程度，以及分布是关于中位数对称还是偏向于某一侧。
+- 超过框的任一边缘 IQR 1.5 倍的观测值的数据会以点的形式单独标注，称为outliers。
+- 从框的两端延伸并到达最远的**非异常值点**的线称作须线(whisker)。
 
 ![](https://r4ds.hadley.nz/images/EDA-boxplot.png)
 
