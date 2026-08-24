@@ -59,13 +59,13 @@ students
 - `Student ID`和`Full Name`两个列名有引号，是因为原表中列名包含空格，不合法，除非在读取时用引号标注。
 
 ```R
-> students <- read_csv("data/students.csv", na = c("N/A", ""))
-> students |> 
+students <- read_csv("data/students.csv", na = c("N/A", ""))
+students |> 
   rename(
     student_id = `Student ID`,
     full_name = `Full Name`
   )
-> students
+students
 #> # A tibble: 6 × 5
 #>   `Student ID` `Full Name`      favourite.food     mealPlan            AGE  
 #>          <dbl> <chr>            <chr>              <chr>               <chr>
@@ -194,13 +194,13 @@ CSV文件不包含有关变量类型的信息（即它是logical、number、stri
 但这难免会存在失误。最常见的原因是列中包含意外值，且一般会误判为chr。**如果用`NA`之外的字符表示缺失值也称为意外值。**比如：
 
 ```R
-> simple_csv <- "
+simple_csv <- "
   x
   10
   .
   20
   30"
-> read_csv(simple_csv)
+read_csv(simple_csv)
 #> # A tibble: 4 × 1
 #>   x    
 #>   <chr>

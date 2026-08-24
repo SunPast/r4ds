@@ -10,8 +10,8 @@ format: html
 本章主要介绍使用dplyr包对数据进行处理，dplyr同样归属于tidyverse。另外为了举例，还需加载含有纽约航班信息的包：
 
 ``` r
-> library(nycflights13)
-> library(tidyverse)
+library(nycflights13)
+library(tidyverse)
 ```
 
 nycflights13包中包含 2013 年从纽约市出发的所有 336,776 个航班，记录在`nycflights13::flights`里：

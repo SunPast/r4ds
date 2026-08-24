@@ -128,14 +128,14 @@ R 的**工作目录**概念绝不可忽视。这是 R 查找要求它加载的�
 可以通过运行`getwd()`命令打印工作目录：
 
 ```R
-> getwd()
-[1] "C:/Users/LENOVO/Desktop/r_packages/BLIT/blit/R"
+getwd()
+#> [1] "C:/Users/LENOVO/Desktop/r_packages/BLIT/blit/R"
 ```
 
 可以从 R 中设置工作目录，但书中**不建议这样做**：
 
 ```R
-> setwd("/path/to/my/CoolProject")
+setwd("/path/to/my/CoolProject")
 ```
 
 因为有更好的方法管理工作——RStudio项目。
