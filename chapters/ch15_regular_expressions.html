@@ -710,7 +710,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>若要提取每个组的匹配结果，使用 <code>str_match()</code>：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_match</span>(<span class="st">"the (</span><span class="sc">\\</span><span class="st">w+) (</span><span class="sc">\\</span><span class="st">w+)"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>除了捕获组，还可使用非捕获组，形如 <code>(?:...)</code>，只用于匹配，不保存匹配内容，不会出现在 <code>\\1</code> 里。</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_match</span>(x, <span class="st">"gr(?:e|a)y"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_match</span>(<span class="fu">c</span>(<span class="st">"gray"</span>, <span class="st">"grey"</span>), <span class="st">"gr(?:e|a)y"</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; "gray", "grey"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="模式控制" class="level2" data-number="15.5">

@@ -709,7 +709,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>首先需要提前明确输出的结构，在此例中，我们的输出应当是与 <code>paths</code> 长度相同的列表，可以用 <code>vector()</code> 来创建：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"list"</span>, <span class="fu">length</span>(paths))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p><code>vector</code>基本语法为<code>vector(mode = "logical", length = 0)</code>。model指定向量类型，默认为逻辑向量；length指定向量的初始长度（默认为0）。</p>
+<p><code>vector</code>基本语法为<code>vector(mode = "logical", length = 0)</code>。mode指定向量类型，默认为逻辑向量；length指定向量的初始长度（默认为0）。</p>
 </blockquote>
 <p>接着，我们不直接对 <code>paths</code> 的元素进行迭代，而是对其索引进行迭代，用 <code>seq_along()</code> 为 <code>paths</code> 中的每个元素生成一个索引：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_along</span>(paths)</span>

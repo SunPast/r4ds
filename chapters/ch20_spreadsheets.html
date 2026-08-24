@@ -431,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="读取-excel-表格" class="level3" data-number="20.2.3">
 <h3 data-number="20.2.3" class="anchored" data-anchor-id="读取-excel-表格"><span class="header-section-number">20.2.3</span> 读取 Excel 表格</h3>
-<p>下图是一个Excel示例表格，包含6个学生的学号、姓名、食物喜好、就餐计划和年龄等信息。。该文件可通过以下链接下载：https://docs.google.com/spreadsheets/d/1V1nPp1tzOuutXFLb3G9Eyxi3qxeEhnOXUzL5_BcCQ0w/。</p>
+<p>下图是一个Excel示例表格，包含6个学生的学号、姓名、食物喜好、就餐计划和年龄等信息。该文件可通过以下链接下载：https://docs.google.com/spreadsheets/d/1V1nPp1tzOuutXFLb3G9Eyxi3qxeEhnOXUzL5_BcCQ0w/。</p>
 <p><img src="https://r4ds.hadley.nz/screenshots/import-spreadsheets-students.png" class="img-fluid"></p>
 <p>如下将表格导入R，输出结果为一个 tibble，每位学生有 5 个变量：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/students.xlsx"</span>)</span>

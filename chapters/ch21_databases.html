@@ -635,8 +635,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>FROM</code> 子句定义了数据来源。</p>
 <p>当前阶段这部分内容无需深入，因为目前只使用单个表。但在后续学习连接函数时，会遇到更复杂的例子。</p>
 <hr>
-<section id="group-by-子句" class="level5" data-number="21.5.3.0.1">
-<h5 data-number="21.5.3.0.1" class="anchored" data-anchor-id="group-by-子句"><span class="header-section-number">21.5.3.0.1</span> 21.5.4 GROUP BY 子句</h5>
+</section>
+<section id="group-by-子句" class="level3" data-number="21.5.4">
+<h3 data-number="21.5.4" class="anchored" data-anchor-id="group-by-子句"><span class="header-section-number">21.5.4</span> GROUP BY 子句</h3>
 <p><code>group_by()</code> 被翻译为 <code>GROUP BY</code> 子句，而 <code>summarize()</code> 则被翻译为 <code>SELECT</code> 子句：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>diamonds_db <span class="sc">|&gt;</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cut) <span class="sc">|&gt;</span> </span>
@@ -651,9 +652,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> cut</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-</section>
-<section id="where-子句" class="level3" data-number="21.5.4">
-<h3 data-number="21.5.4" class="anchored" data-anchor-id="where-子句"><span class="header-section-number">21.5.4</span> WHERE 子句</h3>
+<section id="where-子句" class="level3" data-number="21.5.5">
+<h3 data-number="21.5.5" class="anchored" data-anchor-id="where-子句"><span class="header-section-number">21.5.5</span> WHERE 子句</h3>
 <p><code>filter()</code> 被翻译为 <code>WHERE</code> 子句。比如：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"IAH"</span> <span class="sc">|</span> dest <span class="sc">==</span> <span class="st">"HOU"</span>) <span class="sc">|&gt;</span> </span>
@@ -673,7 +673,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>重要细节：</p>
 <ul>
 <li><code>|</code> 被转换为 SQL 的 <code>OR</code>，<code>&amp;</code> 转换为 <code>AND</code>。</li>
-<li>SQL 使用 <code>=</code> 比较值，而不是 <code>==。</code></li>
+<li>SQL 使用 <code>=</code> 比较值，而不是 <code>==</code>。</li>
 <li>SQL 使用单引号 <code>'text'</code> 表示字符串，而不是双引号。双引号用于标注保留字。</li>
 </ul>
 <p>另外，SQL 中使用 <code>IN</code> 操作符来表示 <code>%in%</code>：</p>
@@ -712,8 +712,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; HAVING (COUNT(*) &gt; 100.0)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="order-by-子句" class="level3" data-number="21.5.5">
-<h3 data-number="21.5.5" class="anchored" data-anchor-id="order-by-子句"><span class="header-section-number">21.5.5</span> ORDER BY 子句</h3>
+<section id="order-by-子句" class="level3" data-number="21.5.6">
+<h3 data-number="21.5.6" class="anchored" data-anchor-id="order-by-子句"><span class="header-section-number">21.5.6</span> ORDER BY 子句</h3>
 <p>排序操作使用的 <code>arrange()</code>函数会被翻译为 <code>ORDER BY</code>：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year, month, day, <span class="fu">desc</span>(dep_delay)) <span class="sc">|&gt;</span> </span>
@@ -727,8 +727,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <hr>
 </section>
-<section id="子查询" class="level3" data-number="21.5.6">
-<h3 data-number="21.5.6" class="anchored" data-anchor-id="子查询"><span class="header-section-number">21.5.6</span> 子查询</h3>
+<section id="子查询" class="level3" data-number="21.5.7">
+<h3 data-number="21.5.7" class="anchored" data-anchor-id="子查询"><span class="header-section-number">21.5.7</span> 子查询</h3>
 <p>有时无法将dplyr管道转换为单个SELECT语句，此时需要使用子查询。子查询是指作为FROM子句数据源（而非常规表）的查询语句。</p>
 <p>dbplyr通常通过子查询来解决SQL的语法限制。例如：</p>
 <ul>
@@ -770,8 +770,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; WHERE (year1 = 2014.0)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="连接" class="level3" data-number="21.5.7">
-<h3 data-number="21.5.7" class="anchored" data-anchor-id="连接"><span class="header-section-number">21.5.7</span> 连接</h3>
+<section id="连接" class="level3" data-number="21.5.8">
+<h3 data-number="21.5.8" class="anchored" data-anchor-id="连接"><span class="header-section-number">21.5.8</span> 连接</h3>
 <p>SQL的连接与dplyr非常相似。以下是一个简单示例：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(planes <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">year_built =</span> year), <span class="fu">join_by</span>(tailnum)) <span class="sc">|&gt;</span> </span>
@@ -808,8 +808,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <hr>
 </section>
-<section id="其他动词" class="level3" data-number="21.5.8">
-<h3 data-number="21.5.8" class="anchored" data-anchor-id="其他动词"><span class="header-section-number">21.5.8</span> 其他动词</h3>
+<section id="其他动词" class="level3" data-number="21.5.9">
+<h3 data-number="21.5.9" class="anchored" data-anchor-id="其他动词"><span class="header-section-number">21.5.9</span> 其他动词</h3>
 <p>dbplyr还能转换更多操作。</p>
 <p>访问dbplyr官网可查看完整的支持函数列表：https://dbplyr.tidyverse.org/reference/</p>
 </section>

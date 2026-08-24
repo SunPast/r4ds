@@ -492,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="https://r4ds.hadley.nz/layers_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid"></p>
 <p><img src="https://r4ds.hadley.nz/layers_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid"></p>
 <p>两幅图都展示了汽车高速燃油效率与发动机排量的关系。上边的图是散点图，下边的图显示了跟随这些变量关系轨迹的平滑曲线，并且周围还显示了置信区间。</p>
-<p>虽然两幅图描述的是相同的数据，但它们并不完全相同。每幅图使用不同的几何对象(geom)来表示数据。左边的图使用点几何对象(point geom)，右边的图使用平滑几何对象(smooth geom)，即一条拟合数据的平滑线。</p>
+<p>虽然两幅图描述的是相同的数据，但它们并不完全相同。每幅图使用不同的几何对象(geom)来表示数据。上边的图使用点几何对象(point geom)，下边的图使用平滑几何对象(smooth geom)，即一条拟合数据的平滑线。</p>
 <p>要改变图中的几何对象，可以更改<code>ggplot()</code>中的几何函数。例如，要分别创建上述两幅图，可以使用以下代码：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 上图</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>

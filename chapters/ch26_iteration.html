@@ -854,8 +854,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>今后再处理这个问题时，只需读取一个 CSV 文件即可。如果是体积更大、结构更复杂的数据集，使用 Parquet 格式更合适。</p>
 <p>另外，建议将项目数据预处理脚本命名为 <code>0-cleanup.R</code>，文件名前的 0 表明其需尽快处理。</p>
 <hr>
-<section id="多次简单迭代" class="level5" data-number="26.3.5.0.1">
-<h5 data-number="26.3.5.0.1" class="anchored" data-anchor-id="多次简单迭代"><span class="header-section-number">26.3.5.0.1</span> 26.3.6 多次简单迭代</h5>
+</section>
+<section id="多次简单迭代" class="level3" data-number="26.3.6">
+<h3 data-number="26.3.6" class="anchored" data-anchor-id="多次简单迭代"><span class="header-section-number">26.3.6</span> 多次简单迭代</h3>
 <p>上述示例碰巧读取的是整洁的数据集，大多数情况下需要额外的清理工作。有两种清理方法：用一个复杂的函数进行一次迭代，或是用多个简单函数进行多轮迭代。</p>
 <p>但实践中，<strong>分步执行</strong>的方式往往能让代码质量更高。</p>
 <p>例如，要读取多个文件，过滤缺失值，转换数据格式（pivot），然后合并成一个数据集。一种方式是写一个函数完成所有操作，然后用 <code>map()</code> 一次调用：</p>
@@ -881,8 +882,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>推荐后一种做法，更易形成整体视角，并在最终得到更高质量的结果。</p>
 <hr>
 </section>
-<section id="异构数据" class="level5" data-number="26.3.5.0.2">
-<h5 data-number="26.3.5.0.2" class="anchored" data-anchor-id="异构数据"><span class="header-section-number">26.3.5.0.2</span> 26.3.7 异构数据</h5>
+<section id="异构数据" class="level3" data-number="26.3.7">
+<h3 data-number="26.3.7" class="anchored" data-anchor-id="异构数据"><span class="header-section-number">26.3.7</span> 异构数据</h3>
 <p>有时数据框之间结构差异太大，导致无法直接用 <code>map()</code> 及 <code>list_rbind()</code>，要么报错，要么合并出一个没法用的结果。</p>
 <p>遇到异构数据，第一步依然是先把所有文件读入：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> paths <span class="sc">|&gt;</span> </span>
@@ -913,8 +914,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 6 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="错误处理" class="level5" data-number="26.3.5.0.3">
-<h5 data-number="26.3.5.0.3" class="anchored" data-anchor-id="错误处理"><span class="header-section-number">26.3.5.0.3</span> 26.3.8 错误处理</h5>
+<section id="错误处理" class="level3" data-number="26.3.8">
+<h3 data-number="26.3.8" class="anchored" data-anchor-id="错误处理"><span class="header-section-number">26.3.8</span> 错误处理</h3>
 <p>有时数据结构太复杂，甚至无法一次性读取所有文件。此时 <code>map()</code> 可能会暴露出其弊端：要么所有文件都读取成功，要么因为某个错误一个都不读。</p>
 <p>为解决此问题，purrr提供了一个函数操作器：<code>possibly()</code>，可以修改函数的默认行为，使其在出错时返回一个指定的值，而不是抛出错误。</p>
 <p>例如：</p>
@@ -933,7 +934,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>paths[failed]</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; character(0)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>然后便可对这些失败文件逐一调用导入函数，进一步诊断失败原因并做出相应处理。</p>
-</section>
 </section>
 </section>
 <section id="保存多个输出" class="level2" data-number="26.4">

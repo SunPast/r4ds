@@ -461,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>这里 <code>n()</code> 是一个特殊的汇总函数，不需要任何参数，它会统计当前分组的行数。它只能在 <code>dplyr</code> 的函数（如 <code>mutate()</code>、<code>filter()</code>、<code>summarize()</code>）中使用，否则会报错：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">n</span>()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Must only be used inside data-masking verbs like `mutate()`, `filter()`, and `group_by()`.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>另外还有<code>n_distinct(x)</code>函数统计某变量中特定值的数量。例如，想知道哪些目的地有最多航空公司服务，如下可列出各个目的地以及服务它的不同航空公司数量。：</p>
+<p>另外还有<code>n_distinct(x)</code>函数统计某变量中特定值的数量。例如，想知道哪些目的地有最多航空公司服务，如下可列出各个目的地以及服务它的不同航空公司数量：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dest) <span class="sc">|&gt;</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">carriers =</span> <span class="fu">n_distinct</span>(carrier)) <span class="sc">|&gt;</span> </span>
@@ -645,8 +645,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">id =</span> <span class="fu">consecutive_id</span>(x)) <span class="sc">|&gt;</span> </span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">1</span>)  <span class="co"># 保留每一组重复元素的第一个</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="数值函数" class="level4" data-number="13.5.0.1">
-<h4 data-number="13.5.0.1" class="anchored" data-anchor-id="数值函数"><span class="header-section-number">13.5.0.1</span> 13.6 数值函数</h4>
+<section id="数值函数" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="数值函数"><span class="header-section-number">13.5.1</span> 数值函数</h3>
 <p>下面总结不同数值函数的用途与适用场景。</p>
 <ul>
 <li><p><code>mean()</code>: 平均数，对极端值敏感，适合对称分布。</p></li>
