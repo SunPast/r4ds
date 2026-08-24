@@ -54,6 +54,7 @@ sort(y1)
 所有不在指定水平中的值都会自动转换为 `NA`：
 
 ```R
+x2 <- c("Dec", "Apr", "Jam", "Mar")
 y2 <- factor(x2, levels = month_levels)
 y2
 #> [1] Dec  Apr  <NA> Mar 

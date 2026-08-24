@@ -131,11 +131,8 @@ flights2 |>
 当 `left_join()` 无法为被连接数据框 x 中的某行找到匹配值时，会在新变量中填充`NA`。例如，tailnum 为 `N3ALAA` 的飞机在 `planes` 中没有相关信息：
 
 ``` r
-flights2 |> 
-  filter(tailnum == "N3ALAA") |> 
-  left_join(planes |> select(tailnum, type, engines, seats))
-flights2 |> 
-  filter(tailnum == "N3ALAA") |> 
+flights2 |>
+  filter(tailnum == "N3ALAA") |>
   left_join(planes |> select(tailnum, type, engines, seats))
 #> Joining with `by = join_by(tailnum)`
 #> # A tibble: 63 × 9

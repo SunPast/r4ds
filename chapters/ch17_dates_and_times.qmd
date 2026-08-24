@@ -204,7 +204,7 @@ flights_dt |>
 
 ```R
 floor_date(time, "week")
-[1] "2025-07-07 00:00:00"
+[1] "2025-07-06 00:00:00"
 ceiling_date(time,"month")
 [1] "2025-08-01 UTC"
 round_date(time,"year")

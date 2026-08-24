@@ -340,7 +340,7 @@ ggplot(diamonds, aes(x = carat, y = price)) +
     当需要自定义数值与颜色的映射关系时，应使用 `scale_color_manual()`。例如在总统政党数据可视化中，红色代表共和党，蓝色代表民主党，可以写成：
 
     ``` r
-    scale_color_manual(values = c(Republican = "#E81B23", Democratic = "#00AEF3")
+    scale_color_manual(values = c(Republican = "#E81B23", Democratic = "#00AEF3"))
     ```
 
 -   **连续型：**使用内置的 `scale_color_gradient()` 或 `scale_fill_gradient()` 函数。如果需要发散的（diverging）颜色比例尺，则应当使用 `scale_color_gradient2()`，该函数允许为正负值分配不同颜色（例如区分高于或低于均值的数据点）。

@@ -186,7 +186,7 @@ tibble(
 #> # ℹ 12 more rows
 ```
 
-原始 9GB CSV 文件被转换为 18 个 Parquet 文件，且命名格式统一。每个文件 100-300MB，总大小约 4GB（仅为原 CSV 的一半多），体现了 Parquet 的高效存储特性。
+原始 9GB CSV 文件被转换为 18 个 Parquet 文件，且命名格式统一。每个文件 100-300MB，总大小约 4GB（不到原 CSV 的一半），体现了 Parquet 的高效存储特性。
 
 
 

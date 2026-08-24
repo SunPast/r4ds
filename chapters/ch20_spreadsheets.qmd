@@ -37,7 +37,7 @@ library(writexl)
 
 ### 读取 Excel 表格
 
-下图是一个Excel示例表格，包含6个学生的学号、姓名、食物喜好、就餐计划和年龄等信息。。该文件可通过以下链接下载：https://docs.google.com/spreadsheets/d/1V1nPp1tzOuutXFLb3G9Eyxi3qxeEhnOXUzL5_BcCQ0w/。
+下图是一个Excel示例表格，包含6个学生的学号、姓名、食物喜好、就餐计划和年龄等信息。该文件可通过以下链接下载：https://docs.google.com/spreadsheets/d/1V1nPp1tzOuutXFLb3G9Eyxi3qxeEhnOXUzL5_BcCQ0w/。
 
 ![](https://r4ds.hadley.nz/screenshots/import-spreadsheets-students.png)
 

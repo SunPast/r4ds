@@ -240,7 +240,7 @@ diamonds |> grouped_mean(cut, carat)
 #> ✖ Column `group_var` is not found.
 ```
 
-不难发现，此函数似乎是想寻找本应在函数定义中充当变量的`group_var`。dplyr 默认直接捕获函数参数中写死的变量名（如 `group_var`），而不是评估新传入的参数名（如 `group` 和 `x`）。这就是“间接引用”。它产生的原因是 dplyr 采取“整洁求值”（tidy evaluation）的规则，本意是方便我们在数据框中直接引用变量名而无需特别处理，但在封装成函数时却成了绊脚石。
+不难发现，此函数似乎是想寻找本应在函数定义中充当变量的`group_var`。dplyr 默认直接捕获函数参数中写死的变量名（如 `group_var`），而不是评估新传入的参数名（如 `cut` 和 `carat`）。这就是“间接引用”。它产生的原因是 dplyr 采取“整洁求值”（tidy evaluation）的规则，本意是方便我们在数据框中直接引用变量名而无需特别处理，但在封装成函数时却成了绊脚石。
 
 好消息是，dplyr提供了解决方案，称为 **embracing 🤗**。embracing 将变量包裹在双层大括号中，例如 `var` 写成 `{{ var }}`，意为使用参数中的值，而不是把参数本身当作变量名。
 
@@ -253,11 +253,15 @@ grouped_mean <- function(df, group_var, mean_var) {
     summarize(mean({{ mean_var }}))
 }
 
-df |> grouped_mean(group, x)
-#> # A tibble: 1 × 2
-#>   group `mean(x)`
-#>   <dbl>     <dbl>
-#> 1     1        10
+diamonds |> grouped_mean(cut, carat)
+#> # A tibble: 5 × 2
+#>   cut       `mean(carat)`
+#>   <ord>            <dbl>
+#> 1 Fair             1.05
+#> 2 Good             0.849
+#> 3 Very Good        0.806
+#> 4 Premium          0.892
+#> 5 Ideal            0.703
 ```
 
 成功！

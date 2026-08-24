@@ -397,7 +397,7 @@ str_match("the (\\w+) (\\w+)")
 除了捕获组，还可使用非捕获组，形如 `(?:...)`，只用于匹配，不保存匹配内容，不会出现在 `\\1` 里。
 
 ``` r
-str_match(x, "gr(?:e|a)y")
+str_match(c("gray", "grey"), "gr(?:e|a)y")
 #> "gray", "grey"
 ```
 

@@ -91,12 +91,12 @@ students |>
   )
 #> # A tibble: 6 × 5
 #>   student_id full_name        favourite_food     meal_plan           age  
-#>        <dbl> <chr>            <chr>              <fct>               <chr>
+#>        <dbl> <chr>            <chr>              <fct>               <dbl>
 #> 1          1 Sunil Huffmann   Strawberry yoghurt Lunch only          4    
 #> 2          2 Barclay Lynn     French fries       Lunch only          5    
 #> 3          3 Jayendra Lyne    <NA>               Breakfast and lunch 7    
-#> 4          4 Leon Rossini     Anchovies          Lunch only          <NA> 
-#> 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch five 
+#> 4          4 Leon Rossini     Anchovies          Lunch only          NA 
+#> 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch 5 
 #> 6          6 Güvenç Attila    Ice cream          Lunch only          6
 ```
 
@@ -117,7 +117,7 @@ read_csv(
 #> 2     4     5     6
 ```
 
-通常，默认使用数据的第一行作为列名。但是，经常能在文件顶部看到有几行元数据，干扰列名的指定。可以使用`skip = n`跳过前n行，或者使用`cmment = #`丢弃所有以#开头的行：
+通常，默认使用数据的第一行作为列名。但是，经常能在文件顶部看到有几行元数据，干扰列名的指定。可以使用`skip = n`跳过前n行，或者使用`comment = #`丢弃所有以#开头的行：
 
 ```R
 read_csv(

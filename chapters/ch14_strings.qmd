@@ -10,7 +10,7 @@ format: html
 本章需要用到以下R包：
 
 ```R
-ibrary(tidyverse)
+library(tidyverse)
 library(babynames)  # 婴儿名字数据
 ```
 

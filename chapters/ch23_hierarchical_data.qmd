@@ -98,7 +98,7 @@ c(c(1, 2), c(3, 4))
 #> [1] 1 2 3 4
 
 x4 <- c(list(1, 2), list(3, 4))
-str(x5)
+str(x4)
 #> List of 4
 #>  $ : num 1
 #>  $ : num 2
