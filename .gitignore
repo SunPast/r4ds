@@ -10,3 +10,4 @@ _site/
 *.html
 site_libs/
 **/*.quarto_ipynb
+*_cache/
