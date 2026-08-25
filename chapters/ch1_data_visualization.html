@@ -425,36 +425,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>表格数据(tabular data)</strong>是一组值，每个值都与一个变量和一个观测值相关联。</li>
 </ul>
 <p>接下来输入<code>palmerpenguins::penguins</code>以打开示例数据的数据框。注意到并未显示出所有变量。</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> palmerpenguins<span class="sc">::</span>penguins</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 344 × 8</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   species island  bill_length_mm bill_depth_mm</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>fct<span class="sc">&gt;</span>            <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>         <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span> Adelie  Torger…           <span class="fl">39.1</span>          <span class="fl">18.7</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span> Adelie  Torger…           <span class="fl">39.5</span>          <span class="fl">17.4</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span> Adelie  Torger…           <span class="fl">40.3</span>          <span class="dv">18</span>  </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span> Adelie  Torger…           <span class="cn">NA</span>            <span class="cn">NA</span>  </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span> Adelie  Torger…           <span class="fl">36.7</span>          <span class="fl">19.3</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span> Adelie  Torger…           <span class="fl">39.3</span>          <span class="fl">20.6</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span> Adelie  Torger…           <span class="fl">38.9</span>          <span class="fl">17.8</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span> Adelie  Torger…           <span class="fl">39.2</span>          <span class="fl">19.6</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span> Adelie  Torger…           <span class="fl">34.1</span>          <span class="fl">18.1</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> Adelie  Torger…           <span class="dv">42</span>            <span class="fl">20.2</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ 334 more rows</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ 4 more variables: flipper_length_mm &lt;int&gt;,</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ Use `print(n = ...)` to see more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>palmerpenguins<span class="sc">::</span>penguins</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 344 × 8</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    species island  bill_length_mm bill_depth_mm</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;fct&gt;   &lt;fct&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 Adelie  Torger…           39.1          18.7</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 Adelie  Torger…           39.5          17.4</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 Adelie  Torger…           40.3          18  </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 Adelie  Torger…           NA            NA  </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 Adelie  Torger…           36.7          19.3</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 Adelie  Torger…           39.3          20.6</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 Adelie  Torger…           38.9          17.8</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Adelie  Torger…           39.2          19.6</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Adelie  Torger…           34.1          18.1</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Adelie  Torger…           42            20.2</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 334 more rows</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 4 more variables: flipper_length_mm &lt;int&gt;,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ Use `print(n = ...)` to see more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>也可使用<code>glimpse(penguins)</code>，查看所有变量和每个变量的前几个观测值的替代视图。</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">glimpse</span>(penguins)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Rows<span class="sc">:</span> <span class="dv">344</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Columns<span class="sc">:</span> <span class="dv">8</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> species           <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Adelie, Adelie, Adelie, Adelie, Ad…</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> island            <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Torgersen, Torgersen, Torgersen, T…</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> bill_length_mm    <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="fl">39.1</span>, <span class="fl">39.5</span>, <span class="fl">40.3</span>, <span class="cn">NA</span>, <span class="fl">36.7</span>, <span class="fl">39.3</span>, …</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> bill_depth_mm     <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="fl">18.7</span>, <span class="fl">17.4</span>, <span class="fl">18.0</span>, <span class="cn">NA</span>, <span class="fl">19.3</span>, <span class="fl">20.6</span>, …</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> flipper_length_mm <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">181</span>, <span class="dv">186</span>, <span class="dv">195</span>, <span class="cn">NA</span>, <span class="dv">193</span>, <span class="dv">190</span>, <span class="dv">181</span>, …</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> body_mass_g       <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">3750</span>, <span class="dv">3800</span>, <span class="dv">3250</span>, <span class="cn">NA</span>, <span class="dv">3450</span>, <span class="dv">3650</span>, …</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> sex               <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> male, female, female, <span class="cn">NA</span>, female, …</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> year              <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>…</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(penguins)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rows: 344</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Columns: 8</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Ad…</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, T…</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, …</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, …</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, …</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, …</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ sex               &lt;fct&gt; male, female, female, NA, female, …</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>此外还可运行<code>view(penguins)</code>，打开交互式数据查看器。</p>
 <p>我们的目标是用可视化图显示这些企鹅的脚蹼长度和体重、种类之间的关系。所以接下来开始介绍<code>ggplot()</code>这一核心函数。</p>
 <p>第一个参数是<strong>data</strong>，表示我们绘图所需的数据集，此处即<code>ggplot(data = penguins)</code>。但由于我们还没有声明具体绘图方式，因此现在画布尚为空白。</p>
@@ -580,8 +580,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="https://books-zh-cn.github.io/r4ds-zh-cn/data-visualize_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid"></p>
 <p>关系的可视化也可以使用密度图，不过较前文有所进阶。使用<code>linewidth</code>参数自定义线条粗细：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">linewidth =</span> <span class="fl">0.75</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">linewidth =</span> <span class="fl">0.75</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="https://books-zh-cn.github.io/r4ds-zh-cn/data-visualize_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid"></p>
 <p>可以用<code>fill</code>参数为密度曲线填充颜色，同时使用<code>alpha</code>参数设置填充的透明度：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">color =</span> species, <span class="at">fill =</span> species)) <span class="sc">+</span></span>

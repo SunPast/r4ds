@@ -494,10 +494,10 @@ report-draft-notes.txt</code></pre>
 <p>R 的<strong>工作目录</strong>概念绝不可忽视。这是 R 查找要求它加载的文件的位置，以及它所放置的保存文件的位置。RStudio 在控制台顶部显示当前工作目录：</p>
 <p><img src="https://r4ds.hadley.nz/screenshots/rstudio-wd.png" class="img-fluid"></p>
 <p>可以通过运行<code>getwd()</code>命令打印工作目录：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"C:/Users/LENOVO/Desktop/r_packages/BLIT/blit/R"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "C:/Users/LENOVO/Desktop/r_packages/BLIT/blit/R"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>可以从 R 中设置工作目录，但书中<strong>不建议这样做</strong>：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setwd</span>(<span class="st">"/path/to/my/CoolProject"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/path/to/my/CoolProject"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>因为有更好的方法管理工作——RStudio项目。</p>
 </section>
 <section id="rstudio项目" class="level3" data-number="6.2.3">
