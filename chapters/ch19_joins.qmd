@@ -42,10 +42,10 @@ library(nycflights13)
 比如 `planes` 和 `weather` 表的主键就没有重复：
 
 ``` r
-> planes |> 
+planes |> 
   count(tailnum) |> 
   filter(n > 1)
-> weather |> 
+weather |> 
   count(time_hour, origin) |> 
   filter(n > 1)
 ```

@@ -27,40 +27,40 @@ library(ggthemes) # 提供色盲调色板
 接下来输入`palmerpenguins::penguins`以打开示例数据的数据框。注意到并未显示出所有变量。
 
 ``` r
-> palmerpenguins::penguins
-# A tibble: 344 × 8
-   species island  bill_length_mm bill_depth_mm
-   <fct>   <fct>            <dbl>         <dbl>
- 1 Adelie  Torger…           39.1          18.7
- 2 Adelie  Torger…           39.5          17.4
- 3 Adelie  Torger…           40.3          18  
- 4 Adelie  Torger…           NA            NA  
- 5 Adelie  Torger…           36.7          19.3
- 6 Adelie  Torger…           39.3          20.6
- 7 Adelie  Torger…           38.9          17.8
- 8 Adelie  Torger…           39.2          19.6
- 9 Adelie  Torger…           34.1          18.1
-10 Adelie  Torger…           42            20.2
-# ℹ 334 more rows
-# ℹ 4 more variables: flipper_length_mm <int>,
-#   body_mass_g <int>, sex <fct>, year <int>
-# ℹ Use `print(n = ...)` to see more rows
+palmerpenguins::penguins
+#> # A tibble: 344 × 8
+#>    species island  bill_length_mm bill_depth_mm
+#>    <fct>   <fct>            <dbl>         <dbl>
+#>  1 Adelie  Torger…           39.1          18.7
+#>  2 Adelie  Torger…           39.5          17.4
+#>  3 Adelie  Torger…           40.3          18  
+#>  4 Adelie  Torger…           NA            NA  
+#>  5 Adelie  Torger…           36.7          19.3
+#>  6 Adelie  Torger…           39.3          20.6
+#>  7 Adelie  Torger…           38.9          17.8
+#>  8 Adelie  Torger…           39.2          19.6
+#>  9 Adelie  Torger…           34.1          18.1
+#> 10 Adelie  Torger…           42            20.2
+#> # ℹ 334 more rows
+#> # ℹ 4 more variables: flipper_length_mm <int>,
+#> #   body_mass_g <int>, sex <fct>, year <int>
+#> # ℹ Use `print(n = ...)` to see more rows
 ```
 
 也可使用`glimpse(penguins)`，查看所有变量和每个变量的前几个观测值的替代视图。
 
 ``` r
-> glimpse(penguins)
-Rows: 344
-Columns: 8
-$ species           <fct> Adelie, Adelie, Adelie, Adelie, Ad…
-$ island            <fct> Torgersen, Torgersen, Torgersen, T…
-$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, …
-$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, …
-$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, …
-$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, …
-$ sex               <fct> male, female, female, NA, female, …
-$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007…
+glimpse(penguins)
+#> Rows: 344
+#> Columns: 8
+#> $ species           <fct> Adelie, Adelie, Adelie, Adelie, Ad…
+#> $ island            <fct> Torgersen, Torgersen, Torgersen, T…
+#> $ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, …
+#> $ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, …
+#> $ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, …
+#> $ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, …
+#> $ sex               <fct> male, female, female, NA, female, …
+#> $ year              <int> 2007, 2007, 2007, 2007, 2007, 2007…
 ```
 
 此外还可运行`view(penguins)`，打开交互式数据查看器。
@@ -267,8 +267,8 @@ ggplot(penguins, aes(x = species, y = body_mass_g)) +
 关系的可视化也可以使用密度图，不过较前文有所进阶。使用`linewidth`参数自定义线条粗细：
 
 ``` r
-> ggplot(penguins, aes(x = body_mass_g, color = species)) +
-+ geom_density(linewidth = 0.75)
+ggplot(penguins, aes(x = body_mass_g, color = species)) +
+  geom_density(linewidth = 0.75)
 ```
 
 ![](https://books-zh-cn.github.io/r4ds-zh-cn/data-visualize_files/figure-html/unnamed-chunk-29-1.png)

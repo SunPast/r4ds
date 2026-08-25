@@ -6,7 +6,9 @@
 /.quarto/
 
 _book/
+_freeze/
 _site/
 *.html
 site_libs/
 **/*.quarto_ipynb
+*_cache/
